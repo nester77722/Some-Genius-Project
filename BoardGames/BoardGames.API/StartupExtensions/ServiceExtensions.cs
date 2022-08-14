@@ -3,6 +3,8 @@ using BoardGames.API.Services;
 using BoardGames.API.Services.Interfaces;
 using BoardGames.Data;
 using BoardGames.Data.Entities;
+using BoardGames.Services.Intefraces;
+using BoardGames.Services.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +28,9 @@ namespace BoardGames.API.StartupExtensions
         {
             services.AddScoped(typeof(Data.Repository.IRepository<>), typeof(Data.Repository.Repository<>));
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IGameService, GameService>();
+            services.AddScoped<IGenreService, GenreService>();
+            services.AddScoped<IMechanicService, MechanicService>();
         }
 
         public static void ConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)

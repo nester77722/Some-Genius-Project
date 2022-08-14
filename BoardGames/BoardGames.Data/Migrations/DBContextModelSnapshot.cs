@@ -39,7 +39,7 @@ namespace BoardGames.Data.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("Games");
+                    b.ToTable("Games", (string)null);
                 });
 
             modelBuilder.Entity("BoardGames.Data.Entities.Genre", b =>
@@ -54,7 +54,7 @@ namespace BoardGames.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genres");
+                    b.ToTable("Genres", (string)null);
                 });
 
             modelBuilder.Entity("BoardGames.Data.Entities.Mechanic", b =>
@@ -69,7 +69,7 @@ namespace BoardGames.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Mechanics");
+                    b.ToTable("Mechanics", (string)null);
                 });
 
             modelBuilder.Entity("BoardGames.Data.Entities.User", b =>
@@ -156,7 +156,7 @@ namespace BoardGames.Data.Migrations
 
                     b.HasIndex("MechanicsId");
 
-                    b.ToTable("GameMechanic");
+                    b.ToTable("GameMechanic", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>

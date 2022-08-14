@@ -15,8 +15,9 @@ namespace BoardGames.Data.ContextConfigurations
         {
             builder.HasKey(g => g.Id);
 
-            builder.HasMany(g => g.Mechanics).WithMany(m => m.Games);
             builder.HasOne(g => g.Genre);
+
+            builder.HasMany(g => g.Mechanics).WithMany(m => m.Games);
         }
     }
 }

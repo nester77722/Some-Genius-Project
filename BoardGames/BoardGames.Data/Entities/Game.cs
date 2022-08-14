@@ -12,6 +12,6 @@ namespace BoardGames.Data.Entities
         public string Name { get; set; }
         public Genre? Genre { get; set; }
         public Guid? GenreId { get; set; }
-        public IEnumerable<Mechanic>? Mechanics { get; set; }
+        public List<Mechanic> Mechanics { get; set; }
     }
 }

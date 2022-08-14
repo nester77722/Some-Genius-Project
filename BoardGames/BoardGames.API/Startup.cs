@@ -1,4 +1,6 @@
-﻿using BoardGames.API.Middleware;
+﻿using AutoMapper;
+using BoardGames.API.Configurations;
+using BoardGames.API.Middleware;
 using BoardGames.API.StartupExtensions;
 using Microsoft.OpenApi.Models;
 
@@ -26,6 +28,14 @@ namespace BoardGames.API
                                       .AllowAnyHeader()
                                       .AllowCredentials());
             });
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new AutoMapperProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.ConfigureSqlServerContext(Configuration);
             services.ConfigureAuthentication(Configuration);
