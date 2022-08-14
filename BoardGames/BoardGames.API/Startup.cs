@@ -1,5 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
-using BoardGames.API.StartupExtensions;
+﻿using BoardGames.API.StartupExtensions;
+using Microsoft.OpenApi.Models;
 
 namespace BoardGames.API
 {
@@ -26,6 +26,7 @@ namespace BoardGames.API
             });
 
             services.ConfigureSqlServerContext(Configuration);
+            services.ConfigureScops();
 
             services.AddSignalR();
             services.AddControllers();

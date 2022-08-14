@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using BoardGames.Data;
+﻿using BoardGames.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BoardGames.API.StartupExtensions
 {
@@ -12,6 +12,11 @@ namespace BoardGames.API.StartupExtensions
             {
                 options.UseSqlServer(connectionString);
             });
+        }
+
+        public static void ConfigureScops(this IServiceCollection services)
+        {
+            services.AddScoped(typeof(Data.Repository.IRepository<>), typeof(Data.Repository.Repository<>));
         }
     }
 }
