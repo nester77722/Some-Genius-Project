@@ -4,11 +4,6 @@ using BoardGames.Data.Repository;
 using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BoardGames.Services.Services
 {
@@ -30,7 +25,7 @@ namespace BoardGames.Services.Services
             var game = _mapper.Map<Game>(gameDto);
             game.Id = Guid.NewGuid();
             game.GenreId = Guid.Parse(gameDto.GenreId);
-            
+
             var ids = _mapper.Map<List<Guid>>(gameDto.MechanicIds);
 
             var mechanics = _mechanicRepository.GetAll().Where(me => ids.Contains(me.Id));

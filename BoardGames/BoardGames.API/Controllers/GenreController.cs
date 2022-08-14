@@ -1,12 +1,7 @@
-﻿using BoardGames.API.Models;
-using BoardGames.Data.Entities;
-using BoardGames.Services.Intefraces;
+﻿using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
-using System.Security.Claims;
 
 namespace BoardGames.API.Controllers
 {
