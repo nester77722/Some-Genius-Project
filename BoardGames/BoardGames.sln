@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32721.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGames.API", "BoardGames.API\BoardGames.API.csproj", "{43DB112C-C0CE-408F-AFA8-F519E26DD546}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoardGames.API", "BoardGames.API\BoardGames.API.csproj", "{43DB112C-C0CE-408F-AFA8-F519E26DD546}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoardGames.Data", "BoardGames.Data\BoardGames.Data.csproj", "{FDB1C5AC-18C8-442B-B92A-D0856E43F9C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BoardGames.Data", "BoardGames.Data\BoardGames.Data.csproj", "{FDB1C5AC-18C8-442B-B92A-D0856E43F9C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{D9093E8A-C6F5-4A55-B807-18C36DF3495B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FDB1C5AC-18C8-442B-B92A-D0856E43F9C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDB1C5AC-18C8-442B-B92A-D0856E43F9C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDB1C5AC-18C8-442B-B92A-D0856E43F9C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9093E8A-C6F5-4A55-B807-18C36DF3495B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9093E8A-C6F5-4A55-B807-18C36DF3495B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9093E8A-C6F5-4A55-B807-18C36DF3495B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9093E8A-C6F5-4A55-B807-18C36DF3495B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

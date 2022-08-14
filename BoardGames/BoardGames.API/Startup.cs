@@ -1,4 +1,5 @@
-﻿using BoardGames.API.StartupExtensions;
+﻿using BoardGames.API.Middleware;
+using BoardGames.API.StartupExtensions;
 using Microsoft.OpenApi.Models;
 
 namespace BoardGames.API
@@ -26,7 +27,9 @@ namespace BoardGames.API
             });
 
             services.ConfigureSqlServerContext(Configuration);
+            services.ConfigureAuthentication(Configuration);
             services.ConfigureScops();
+
 
             services.AddSignalR();
             services.AddControllers();
@@ -39,7 +42,6 @@ namespace BoardGames.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors("CorsPolicy");
-
             app.UseStaticFiles();
 
             if (env.IsDevelopment())
@@ -55,6 +57,8 @@ namespace BoardGames.API
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseMiddleware<ErrorHandlerMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

@@ -9,6 +9,9 @@ namespace BoardGames.Data.ContextConfigurations
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.RefreshToken).IsRequired(false);
+            builder.Property(x => x.RefreshTokenExpiryTime).IsRequired(false);
         }
     }
 }

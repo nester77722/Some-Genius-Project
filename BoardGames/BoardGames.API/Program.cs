@@ -7,14 +7,8 @@ namespace WebApi
     {
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-               .Enrich.FromLogContext()
-               .WriteTo.Console()
-               .CreateLogger();
-
             try
             {
-                Log.Information("Starting up");
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
@@ -27,12 +21,20 @@ namespace WebApi
             }
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .UseSerilog()
+        public static IHostBuilder CreateHostBuilder(string[] args)
+        {
+            var host = Host.CreateDefaultBuilder(args)
+                .UseSerilog((context, services, loggerConfiguration) => loggerConfiguration
+                .ReadFrom.Configuration(context.Configuration)
+                .Enrich.FromLogContext())
+                .UseConsoleLifetime()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
                 });
+
+            return host;
+        }
     }
 }
