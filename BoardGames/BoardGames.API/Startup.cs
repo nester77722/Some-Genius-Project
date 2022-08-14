@@ -20,6 +20,7 @@ namespace BoardGames.API
             {
                 options.AddPolicy("CorsPolicy",
                     builder => builder.WithOrigins("http://localhost:4200")
+                                      .WithOrigins("http://localhost:63342")
                                       .WithOrigins("http://localhost:65244")
                                       .AllowAnyMethod()
                                       .AllowAnyHeader()
