@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BoardGames.Data.ContextConfigurations
 {
-    public class UserConfig : IEntityTypeConfiguration<User>
+    internal class UserConfig : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasKey(u => u.Id);
 
-            builder.Property(x => x.RefreshToken).IsRequired(false);
-            builder.Property(x => x.RefreshTokenExpiryTime).IsRequired(false);
+            builder.Property(u => u.RefreshToken).IsRequired(false);
+            builder.Property(u => u.RefreshTokenExpiryTime).IsRequired(false);
         }
     }
 }
