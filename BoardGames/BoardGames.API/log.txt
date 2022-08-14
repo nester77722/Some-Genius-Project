@@ -1709,3 +1709,743 @@ SELECT @@ROWCOUNT;
 2022-08-14 19:27:39.953 +03:00 [INF] Executed endpoint 'BoardGames.API.Controllers.AuthController.Login (BoardGames.API)'
 2022-08-14 19:27:39.957 +03:00 [DBG] 'DBContext' disposed.
 2022-08-14 19:27:39.958 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7202/api/Auth/login application/json 53 - 200 - application/json;+charset=utf-8 534.2917ms
+2022-08-14 19:48:12.689 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-08-14 19:48:13.043 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<Guid>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2022-08-14 19:48:13.044 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<Guid>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2022-08-14 19:48:13.277 +03:00 [INF] Entity Framework Core 6.0.7 initialized 'DBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.7' with options: None
+2022-08-14 19:48:13.416 +03:00 [DBG] Migrating using database 'BoardGamesSomee' on server 'BoardGamesSomee.mssql.somee.com'.
+2022-08-14 19:48:13.421 +03:00 [DBG] Opening connection to database 'BoardGamesSomee' on server 'BoardGamesSomee.mssql.somee.com'.
+2022-08-14 19:48:27.901 +03:00 [DBG] An error occurred using the connection to database 'BoardGamesSomee' on server 'BoardGamesSomee.mssql.somee.com'.
+2022-08-14 19:48:27.906 +03:00 [DBG] 'DBContext' disposed.
+2022-08-14 19:51:11.864 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-08-14 19:51:12.228 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<Guid>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2022-08-14 19:51:12.229 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<Guid>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2022-08-14 19:51:12.444 +03:00 [INF] Entity Framework Core 6.0.7 initialized 'DBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.7' with options: None
+2022-08-14 19:51:12.483 +03:00 [DBG] Migrating using database 'BoardGamesSomee' on server 'BoardGamesSomee.mssql.somee.com'.
+2022-08-14 19:51:12.488 +03:00 [DBG] Opening connection to database 'BoardGamesSomee' on server 'BoardGamesSomee.mssql.somee.com'.
+2022-08-14 19:51:27.387 +03:00 [DBG] An error occurred using the connection to database 'BoardGamesSomee' on server 'BoardGamesSomee.mssql.somee.com'.
+2022-08-14 19:51:27.392 +03:00 [DBG] 'DBContext' disposed.
+2022-08-14 19:58:29.979 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-08-14 19:58:30.347 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<Guid>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2022-08-14 19:58:30.347 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<Guid>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2022-08-14 19:58:30.564 +03:00 [INF] Entity Framework Core 6.0.7 initialized 'DBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.7' with options: None
+2022-08-14 19:58:30.603 +03:00 [DBG] Migrating using database 'BoardGamesSomee' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:30.608 +03:00 [DBG] Opening connection to database 'BoardGamesSomee' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:32.065 +03:00 [DBG] An error occurred using the connection to database 'BoardGamesSomee' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:32.065 +03:00 [DBG] Opening connection to database 'BoardGamesSomee' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:32.066 +03:00 [DBG] An error occurred using the connection to database 'BoardGamesSomee' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:32.100 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<Guid>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2022-08-14 19:58:32.100 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<Guid>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2022-08-14 19:58:32.121 +03:00 [DBG] Opening connection to database 'master' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:33.091 +03:00 [DBG] Opened connection to database 'master' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:33.096 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 19:58:33.102 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (4ms).
+2022-08-14 19:58:33.109 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [BoardGamesSomee];
+2022-08-14 19:58:33.400 +03:00 [ERR] Failed executing DbCommand (292ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [BoardGamesSomee];
+2022-08-14 19:58:33.402 +03:00 [DBG] Closing connection to database 'master' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:33.405 +03:00 [DBG] Closed connection to database 'master' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 19:58:33.406 +03:00 [DBG] 'DBContext' disposed.
+2022-08-14 20:02:16.225 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-08-14 20:02:16.578 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<Guid>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2022-08-14 20:02:16.579 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<Guid>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2022-08-14 20:02:16.790 +03:00 [INF] Entity Framework Core 6.0.7 initialized 'DBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.7' with options: None
+2022-08-14 20:02:16.920 +03:00 [DBG] Migrating using database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:16.924 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:18.899 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:18.905 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:18.910 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (4ms).
+2022-08-14 20:02:18.918 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-08-14 20:02:19.712 +03:00 [INF] Executed DbCommand (795ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-08-14 20:02:19.714 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:19.717 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:19.720 +03:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2022-08-14 20:02:19.720 +03:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2022-08-14 20:02:19.720 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:19.721 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:19.721 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-08-14 20:02:19.918 +03:00 [INF] Executed DbCommand (196ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-08-14 20:02:19.918 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:19.918 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:19.919 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:19.919 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:19.919 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:19.919 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:19.919 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-08-14 20:02:20.115 +03:00 [INF] Executed DbCommand (196ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-08-14 20:02:20.115 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:20.115 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:20.181 +03:00 [DBG] DetectChanges starting for 'DBContext'.
+2022-08-14 20:02:20.183 +03:00 [DBG] DetectChanges completed for 'DBContext'.
+2022-08-14 20:02:20.201 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:20.201 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:20.201 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:20.201 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:20.201 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2022-08-14 20:02:21.138 +03:00 [INF] Executed DbCommand (936ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2022-08-14 20:02:21.138 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.138 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.140 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.140 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.140 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:21.140 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:21.140 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-08-14 20:02:21.344 +03:00 [INF] Executed DbCommand (204ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2022-08-14 20:02:21.344 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.344 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.344 +03:00 [DBG] Creating DbCommand for 'ExecuteScalar'.
+2022-08-14 20:02:21.344 +03:00 [DBG] Created DbCommand for 'ExecuteScalar' (0ms).
+2022-08-14 20:02:21.344 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.344 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.344 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-08-14 20:02:21.550 +03:00 [INF] Executed DbCommand (206ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2022-08-14 20:02:21.550 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.550 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.551 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:02:21.551 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2022-08-14 20:02:21.551 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.551 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.552 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2022-08-14 20:02:21.755 +03:00 [INF] Executed DbCommand (203ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2022-08-14 20:02:21.757 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:02:21.757 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.757 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.766 +03:00 [INF] Applying migration '20220805112116_Init migration'.
+2022-08-14 20:02:21.797 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.797 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:21.798 +03:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-08-14 20:02:21.963 +03:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-08-14 20:02:21.964 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:21.964 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:21.964 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2022-08-14 20:02:22.268 +03:00 [INF] Executed DbCommand (304ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] uniqueidentifier NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2022-08-14 20:02:22.268 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:22.269 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:22.269 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] uniqueidentifier NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2022-08-14 20:02:22.467 +03:00 [INF] Executed DbCommand (198ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] uniqueidentifier NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2022-08-14 20:02:22.467 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:22.467 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:22.467 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] uniqueidentifier NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:22.878 +03:00 [INF] Executed DbCommand (410ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] uniqueidentifier NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:22.878 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:22.878 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:22.878 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] uniqueidentifier NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:23.083 +03:00 [INF] Executed DbCommand (205ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] uniqueidentifier NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:23.083 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:23.083 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:23.083 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:23.595 +03:00 [INF] Executed DbCommand (511ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] uniqueidentifier NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:23.595 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:23.595 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:23.595 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] uniqueidentifier NOT NULL,
+    [RoleId] uniqueidentifier NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:23.821 +03:00 [INF] Executed DbCommand (226ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] uniqueidentifier NOT NULL,
+    [RoleId] uniqueidentifier NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:23.821 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:23.821 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:23.821 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] uniqueidentifier NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:24.208 +03:00 [INF] Executed DbCommand (386ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] uniqueidentifier NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2022-08-14 20:02:24.208 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:24.208 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:25.421 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2022-08-14 20:02:25.645 +03:00 [INF] Executed DbCommand (224ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2022-08-14 20:02:25.645 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:25.645 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:25.645 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2022-08-14 20:02:26.054 +03:00 [INF] Executed DbCommand (409ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2022-08-14 20:02:26.055 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:26.055 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:26.055 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2022-08-14 20:02:26.259 +03:00 [INF] Executed DbCommand (204ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2022-08-14 20:02:26.259 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:26.259 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:26.259 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2022-08-14 20:02:26.463 +03:00 [INF] Executed DbCommand (204ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2022-08-14 20:02:26.464 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:26.464 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:26.464 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2022-08-14 20:02:26.669 +03:00 [INF] Executed DbCommand (205ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2022-08-14 20:02:26.669 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:26.669 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:26.669 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2022-08-14 20:02:26.873 +03:00 [INF] Executed DbCommand (204ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2022-08-14 20:02:26.873 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:26.873 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:26.873 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2022-08-14 20:02:27.078 +03:00 [INF] Executed DbCommand (205ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2022-08-14 20:02:27.079 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:27.079 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:27.079 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220805112116_Init migration', N'6.0.7');
+2022-08-14 20:02:27.283 +03:00 [INF] Executed DbCommand (205ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220805112116_Init migration', N'6.0.7');
+2022-08-14 20:02:27.284 +03:00 [DBG] Committing transaction.
+2022-08-14 20:02:27.488 +03:00 [DBG] Committed transaction.
+2022-08-14 20:02:27.489 +03:00 [DBG] Disposing transaction.
+2022-08-14 20:02:27.489 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:27.489 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:27.545 +03:00 [INF] Applying migration '20220814152035_Added tokens to user entity'.
+2022-08-14 20:02:27.552 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:27.552 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:27.552 +03:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-08-14 20:02:27.898 +03:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-08-14 20:02:27.898 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:27.898 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:27.898 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [RefreshToken] nvarchar(max) NOT NULL DEFAULT N'';
+2022-08-14 20:02:28.103 +03:00 [INF] Executed DbCommand (204ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [RefreshToken] nvarchar(max) NOT NULL DEFAULT N'';
+2022-08-14 20:02:28.103 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:28.103 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:28.103 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [RefreshTokenExpiryTime] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+2022-08-14 20:02:28.309 +03:00 [INF] Executed DbCommand (206ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [RefreshTokenExpiryTime] datetime2 NOT NULL DEFAULT '0001-01-01T00:00:00.0000000';
+2022-08-14 20:02:28.309 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:28.309 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:28.309 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220814152035_Added tokens to user entity', N'6.0.7');
+2022-08-14 20:02:28.512 +03:00 [INF] Executed DbCommand (203ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220814152035_Added tokens to user entity', N'6.0.7');
+2022-08-14 20:02:28.512 +03:00 [DBG] Committing transaction.
+2022-08-14 20:02:28.717 +03:00 [DBG] Committed transaction.
+2022-08-14 20:02:28.717 +03:00 [DBG] Disposing transaction.
+2022-08-14 20:02:28.717 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:28.717 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:28.717 +03:00 [INF] Applying migration '20220814162607_configured user entity'.
+2022-08-14 20:02:28.726 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:28.726 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:28.726 +03:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-08-14 20:02:28.923 +03:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-08-14 20:02:28.924 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:28.924 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:28.924 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[AspNetUsers]') AND [c].[name] = N'RefreshTokenExpiryTime');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [AspNetUsers] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [AspNetUsers] ALTER COLUMN [RefreshTokenExpiryTime] datetime2 NULL;
+2022-08-14 20:02:29.232 +03:00 [INF] Executed DbCommand (308ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var0 sysname;
+SELECT @var0 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[AspNetUsers]') AND [c].[name] = N'RefreshTokenExpiryTime');
+IF @var0 IS NOT NULL EXEC(N'ALTER TABLE [AspNetUsers] DROP CONSTRAINT [' + @var0 + '];');
+ALTER TABLE [AspNetUsers] ALTER COLUMN [RefreshTokenExpiryTime] datetime2 NULL;
+2022-08-14 20:02:29.232 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:29.232 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:29.232 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[AspNetUsers]') AND [c].[name] = N'RefreshToken');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [AspNetUsers] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [AspNetUsers] ALTER COLUMN [RefreshToken] nvarchar(max) NULL;
+2022-08-14 20:02:29.433 +03:00 [INF] Executed DbCommand (201ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @var1 sysname;
+SELECT @var1 = [d].[name]
+FROM [sys].[default_constraints] [d]
+INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+WHERE ([d].[parent_object_id] = OBJECT_ID(N'[AspNetUsers]') AND [c].[name] = N'RefreshToken');
+IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [AspNetUsers] DROP CONSTRAINT [' + @var1 + '];');
+ALTER TABLE [AspNetUsers] ALTER COLUMN [RefreshToken] nvarchar(max) NULL;
+2022-08-14 20:02:29.434 +03:00 [DBG] Creating DbCommand for 'ExecuteNonQuery'.
+2022-08-14 20:02:29.434 +03:00 [DBG] Created DbCommand for 'ExecuteNonQuery' (0ms).
+2022-08-14 20:02:29.434 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220814162607_configured user entity', N'6.0.7');
+2022-08-14 20:02:29.638 +03:00 [INF] Executed DbCommand (204ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20220814162607_configured user entity', N'6.0.7');
+2022-08-14 20:02:29.638 +03:00 [DBG] Committing transaction.
+2022-08-14 20:02:29.843 +03:00 [DBG] Committed transaction.
+2022-08-14 20:02:29.843 +03:00 [DBG] Disposing transaction.
+2022-08-14 20:02:29.843 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:29.843 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:02:29.844 +03:00 [DBG] 'DBContext' disposed.
+2022-08-14 20:05:26.632 +03:00 [DBG] Hosting starting
+2022-08-14 20:05:26.698 +03:00 [INF] User profile is available. Using 'C:\Users\ynesterenko\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-14 20:05:26.734 +03:00 [DBG] Reading data from file 'C:\Users\ynesterenko\AppData\Local\ASP.NET\DataProtection-Keys\key-2c74556e-23a5-4bd4-bdd5-e74b62cea853.xml'.
+2022-08-14 20:05:26.762 +03:00 [DBG] Found key {2c74556e-23a5-4bd4-bdd5-e74b62cea853}.
+2022-08-14 20:05:26.782 +03:00 [DBG] Considering key {2c74556e-23a5-4bd4-bdd5-e74b62cea853} with expiration date 2022-11-01 21:38:14Z as default key.
+2022-08-14 20:05:26.784 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-08-14 20:05:26.788 +03:00 [DBG] Decrypting secret element using Windows DPAPI.
+2022-08-14 20:05:26.790 +03:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2022-08-14 20:05:26.795 +03:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2022-08-14 20:05:26.799 +03:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2022-08-14 20:05:26.803 +03:00 [DBG] Using key {2c74556e-23a5-4bd4-bdd5-e74b62cea853} as the default key.
+2022-08-14 20:05:26.805 +03:00 [DBG] Key ring with default key {2c74556e-23a5-4bd4-bdd5-e74b62cea853} was loaded during application startup.
+2022-08-14 20:05:26.973 +03:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2022-08-14 20:05:27.171 +03:00 [DBG] Using development certificate: CN=localhost (Thumbprint: 37AB249EB2E4F993716A16DC9FF0F0A8E17023FC)
+2022-08-14 20:05:27.215 +03:00 [INF] Now listening on: https://localhost:7202
+2022-08-14 20:05:27.216 +03:00 [INF] Now listening on: http://localhost:5202
+2022-08-14 20:05:27.217 +03:00 [DBG] Loaded hosting startup assembly BoardGames.API
+2022-08-14 20:05:27.217 +03:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2022-08-14 20:05:27.218 +03:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2022-08-14 20:05:27.220 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-08-14 20:05:27.221 +03:00 [INF] Hosting environment: Development
+2022-08-14 20:05:27.222 +03:00 [INF] Content root path: D:\Projects\Some-Genius-Project\BoardGames\BoardGames.API
+2022-08-14 20:05:27.223 +03:00 [DBG] Hosting started
+2022-08-14 20:05:27.507 +03:00 [DBG] Connection id "0HMJU2SNQ9LEF" received FIN.
+2022-08-14 20:05:27.507 +03:00 [DBG] Connection id "0HMJU2SNQ9LEG" received FIN.
+2022-08-14 20:05:27.507 +03:00 [DBG] Connection id "0HMJU2SNQ9LEF" accepted.
+2022-08-14 20:05:27.507 +03:00 [DBG] Connection id "0HMJU2SNQ9LEG" accepted.
+2022-08-14 20:05:27.511 +03:00 [DBG] Connection id "0HMJU2SNQ9LEF" started.
+2022-08-14 20:05:27.511 +03:00 [DBG] Connection id "0HMJU2SNQ9LEG" started.
+2022-08-14 20:05:27.529 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-08-14 20:05:27.529 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](TIOAdapter adapter)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](TIOAdapter adapter, Boolean receiveFirst, Byte[] reAuthenticationData, Boolean isApm)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2022-08-14 20:05:27.570 +03:00 [DBG] Connection id "0HMJU2SNQ9LEG" stopped.
+2022-08-14 20:05:27.570 +03:00 [DBG] Connection id "0HMJU2SNQ9LEF" stopped.
+2022-08-14 20:05:27.573 +03:00 [DBG] Connection id "0HMJU2SNQ9LEG" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-08-14 20:05:27.573 +03:00 [DBG] Connection id "0HMJU2SNQ9LEF" sending FIN because: "The Socket transport's send loop completed gracefully."
+2022-08-14 20:05:27.841 +03:00 [DBG] Connection id "0HMJU2SNQ9LEH" accepted.
+2022-08-14 20:05:27.844 +03:00 [DBG] Connection id "0HMJU2SNQ9LEH" started.
+2022-08-14 20:05:27.897 +03:00 [DBG] Connection 0HMJU2SNQ9LEH established using the following protocol: "Tls12"
+2022-08-14 20:05:27.947 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7202/swagger/index.html - -
+2022-08-14 20:05:27.989 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2022-08-14 20:05:27.992 +03:00 [DBG] The request path /swagger/index.html does not match an existing file
+2022-08-14 20:05:28.082 +03:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2022-08-14 20:05:28.213 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7202/_framework/aspnetcore-browser-refresh.js - -
+2022-08-14 20:05:28.215 +03:00 [DBG] Response markup was updated to include browser refresh script injection.
+2022-08-14 20:05:28.219 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7202/_framework/aspnetcore-browser-refresh.js - - - 200 11998 application/javascript;+charset=utf-8 5.8570ms
+2022-08-14 20:05:28.219 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7202/swagger/index.html - - - 200 - text/html;charset=utf-8 275.3481ms
+2022-08-14 20:05:28.237 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7202/_vs/browserLink - -
+2022-08-14 20:05:28.255 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7202/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.9603ms
+2022-08-14 20:05:28.355 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7202/swagger/v1/swagger.json - -
+2022-08-14 20:05:28.356 +03:00 [DBG] The request path /swagger/v1/swagger.json does not match an existing file
+2022-08-14 20:05:28.456 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7202/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 101.5126ms
+2022-08-14 20:05:43.376 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7202/api/Auth/register application/json 76
+2022-08-14 20:05:43.379 +03:00 [DBG] The request has an origin header: 'https://localhost:7202'.
+2022-08-14 20:05:43.380 +03:00 [INF] CORS policy execution failed.
+2022-08-14 20:05:43.380 +03:00 [INF] Request origin https://localhost:7202 does not have permission to access the resource.
+2022-08-14 20:05:43.382 +03:00 [DBG] POST requests are not supported
+2022-08-14 20:05:43.384 +03:00 [DBG] POST requests are not supported
+2022-08-14 20:05:43.410 +03:00 [DBG] 1 candidate(s) found for the request path '/api/Auth/register'
+2022-08-14 20:05:43.414 +03:00 [DBG] Endpoint 'BoardGames.API.Controllers.AuthController.Register (BoardGames.API)' with route pattern 'api/Auth/register' is valid for the request path '/api/Auth/register'
+2022-08-14 20:05:43.416 +03:00 [DBG] Request matched endpoint 'BoardGames.API.Controllers.AuthController.Register (BoardGames.API)'
+2022-08-14 20:05:43.783 +03:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2022-08-14 20:05:43.787 +03:00 [INF] Executing endpoint 'BoardGames.API.Controllers.AuthController.Register (BoardGames.API)'
+2022-08-14 20:05:43.815 +03:00 [INF] Route matched with {action = "Register", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(BoardGames.API.Models.RegisterModel) on controller BoardGames.API.Controllers.AuthController (BoardGames.API).
+2022-08-14 20:05:43.818 +03:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2022-08-14 20:05:43.820 +03:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2022-08-14 20:05:43.821 +03:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2022-08-14 20:05:43.823 +03:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2022-08-14 20:05:43.824 +03:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2022-08-14 20:05:43.826 +03:00 [DBG] Executing controller factory for controller BoardGames.API.Controllers.AuthController (BoardGames.API)
+2022-08-14 20:05:43.977 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2022-08-14 20:05:44.008 +03:00 [DBG] Executed controller factory for controller BoardGames.API.Controllers.AuthController (BoardGames.API)
+2022-08-14 20:05:44.021 +03:00 [DBG] Attempting to bind parameter 'registerModel' of type 'BoardGames.API.Models.RegisterModel' ...
+2022-08-14 20:05:44.023 +03:00 [DBG] Attempting to bind parameter 'registerModel' of type 'BoardGames.API.Models.RegisterModel' using the name '' in request data ...
+2022-08-14 20:05:44.026 +03:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2022-08-14 20:05:44.031 +03:00 [DBG] Connection id "0HMJU2SNQ9LEH", Request id "0HMJU2SNQ9LEH:00000009": started reading request body.
+2022-08-14 20:05:44.032 +03:00 [DBG] Connection id "0HMJU2SNQ9LEH", Request id "0HMJU2SNQ9LEH:00000009": done reading request body.
+2022-08-14 20:05:44.039 +03:00 [DBG] JSON input formatter succeeded, deserializing to type 'BoardGames.API.Models.RegisterModel'
+2022-08-14 20:05:44.040 +03:00 [DBG] Done attempting to bind parameter 'registerModel' of type 'BoardGames.API.Models.RegisterModel'.
+2022-08-14 20:05:44.040 +03:00 [DBG] Done attempting to bind parameter 'registerModel' of type 'BoardGames.API.Models.RegisterModel'.
+2022-08-14 20:05:44.042 +03:00 [DBG] Attempting to validate the bound parameter 'registerModel' of type 'BoardGames.API.Models.RegisterModel' ...
+2022-08-14 20:05:44.050 +03:00 [DBG] Done attempting to validate the bound parameter 'registerModel' of type 'BoardGames.API.Models.RegisterModel'.
+2022-08-14 20:05:44.582 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserRole<Guid>' as the properties are already covered by the index {'UserId', 'RoleId'}.
+2022-08-14 20:05:44.584 +03:00 [DBG] The index {'UserId'} was not created on entity type 'IdentityUserToken<Guid>' as the properties are already covered by the index {'UserId', 'LoginProvider', 'Name'}.
+2022-08-14 20:05:44.901 +03:00 [INF] Entity Framework Core 6.0.7 initialized 'DBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.7' with options: None
+2022-08-14 20:05:45.011 +03:00 [DBG] Compiling query expression: 
+'DbSet<User>()
+    .FirstOrDefault(u => u.NormalizedUserName == __normalizedUserName_0)'
+2022-08-14 20:05:45.323 +03:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<User>(
+    asyncEnumerable: new SingleQueryingEnumerable<User>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: User.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: User.AccessFailedCount (int) Required, 1], [Property: User.ConcurrencyStamp (string) Concurrency, 2], [Property: User.Email (string) MaxLength(256), 3], [Property: User.EmailConfirmed (bool) Required, 4], [Property: User.LockoutEnabled (bool) Required, 5], [Property: User.LockoutEnd (DateTimeOffset?), 6], [Property: User.NormalizedEmail (string) Index MaxLength(256), 7], [Property: User.NormalizedUserName (string) Index MaxLength(256), 8], [Property: User.PasswordHash (string), 9], [Property: User.PhoneNumber (string), 10], [Property: User.PhoneNumberConfirmed (bool) Required, 11], [Property: User.RefreshToken (string), 12], [Property: User.RefreshTokenExpiryTime (DateTime?), 13], [Property: User.SecurityStamp (string), 14], [Property: User.TwoFactorEnabled (bool) Required, 15], [Property: User.UserName (string) MaxLength(256), 16] }
+            SELECT TOP(1) a.Id, a.AccessFailedCount, a.ConcurrencyStamp, a.Email, a.EmailConfirmed, a.LockoutEnabled, a.LockoutEnd, a.NormalizedEmail, a.NormalizedUserName, a.PasswordHash, a.PhoneNumber, a.PhoneNumberConfirmed, a.RefreshToken, a.RefreshTokenExpiryTime, a.SecurityStamp, a.TwoFactorEnabled, a.UserName
+            FROM AspNetUsers AS a
+            WHERE a.NormalizedUserName == @__normalizedUserName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, User>, 
+        BoardGames.Data.DBContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2022-08-14 20:05:45.398 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:05:45.443 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (41ms).
+2022-08-14 20:05:45.463 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:46.699 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:46.716 +03:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RefreshToken], [a].[RefreshTokenExpiryTime], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2022-08-14 20:05:46.998 +03:00 [INF] Executed DbCommand (288ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RefreshToken], [a].[RefreshTokenExpiryTime], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2022-08-14 20:05:47.026 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:05:47.034 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:47.044 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:47.086 +03:00 [DBG] 'DBContext' generated a value for the property 'Id.User'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-08-14 20:05:47.173 +03:00 [DBG] Context 'DBContext' started tracking 'User' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-08-14 20:05:47.183 +03:00 [DBG] SaveChanges starting for 'DBContext'.
+2022-08-14 20:05:47.187 +03:00 [DBG] DetectChanges starting for 'DBContext'.
+2022-08-14 20:05:47.208 +03:00 [DBG] DetectChanges completed for 'DBContext'.
+2022-08-14 20:05:47.231 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:47.234 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:47.238 +03:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-08-14 20:05:47.405 +03:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-08-14 20:05:47.459 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:05:47.460 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2022-08-14 20:05:47.464 +03:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = DateTime2), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [RefreshToken], [RefreshTokenExpiryTime], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2022-08-14 20:05:47.693 +03:00 [INF] Executed DbCommand (230ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = DateTime2), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [RefreshToken], [RefreshTokenExpiryTime], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16);
+2022-08-14 20:05:47.702 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:05:47.710 +03:00 [DBG] Committing transaction.
+2022-08-14 20:05:47.916 +03:00 [DBG] Committed transaction.
+2022-08-14 20:05:47.922 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:47.923 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:47.929 +03:00 [DBG] Disposing transaction.
+2022-08-14 20:05:47.941 +03:00 [DBG] An entity of type 'User' tracked by 'DBContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-08-14 20:05:47.947 +03:00 [DBG] SaveChanges completed for 'DBContext' with 1 entities written to the database.
+2022-08-14 20:05:47.957 +03:00 [DBG] Compiling query expression: 
+'DbSet<IdentityRole<Guid>>()
+    .SingleOrDefault(r => r.NormalizedName == __normalizedRoleName_0)'
+2022-08-14 20:05:47.963 +03:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityRole<Guid>>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityRole<Guid>>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityRole<Guid>.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: IdentityRole<Guid>.ConcurrencyStamp (string) Concurrency, 1], [Property: IdentityRole<Guid>.Name (string) MaxLength(256), 2], [Property: IdentityRole<Guid>.NormalizedName (string) Index MaxLength(256), 3] }
+            SELECT TOP(2) a.Id, a.ConcurrencyStamp, a.Name, a.NormalizedName
+            FROM AspNetRoles AS a
+            WHERE a.NormalizedName == @__normalizedRoleName_0), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityRole<Guid>>, 
+        BoardGames.Data.DBContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2022-08-14 20:05:47.970 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:05:47.971 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2022-08-14 20:05:47.972 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:47.973 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:47.974 +03:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2022-08-14 20:05:48.201 +03:00 [INF] Executed DbCommand (227ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2022-08-14 20:05:48.222 +03:00 [DBG] Context 'DBContext' started tracking 'IdentityRole<Guid>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-08-14 20:05:48.229 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:05:48.230 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.231 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.245 +03:00 [DBG] Compiling query expression: 
+'DbSet<IdentityUserRole<Guid>>()
+    .FirstOrDefault(e => object.Equals(
+        objA: EF.Property<object>(e, "UserId"), 
+        objB: (object)__get_Item_0) && object.Equals(
+        objA: EF.Property<object>(e, "RoleId"), 
+        objB: (object)__get_Item_1))'
+2022-08-14 20:05:48.288 +03:00 [DBG] Generated query execution expression: 
+'queryContext => ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync<IdentityUserRole<Guid>>(
+    asyncEnumerable: new SingleQueryingEnumerable<IdentityUserRole<Guid>>(
+        (RelationalQueryContext)queryContext, 
+        RelationalCommandCache.SelectExpression(
+            Projection Mapping:
+                EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: IdentityUserRole<Guid>.UserId (Guid) Required PK FK AfterSave:Throw, 0], [Property: IdentityUserRole<Guid>.RoleId (Guid) Required PK FK Index AfterSave:Throw, 1] }
+            SELECT TOP(1) a.UserId, a.RoleId
+            FROM AspNetUserRoles AS a
+            WHERE (a.UserId == @__get_Item_0) && (a.RoleId == @__get_Item_1)), 
+        Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, IdentityUserRole<Guid>>, 
+        BoardGames.Data.DBContext, 
+        False, 
+        False, 
+        True
+    ), 
+    cancellationToken: queryContext.CancellationToken)'
+2022-08-14 20:05:48.292 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:05:48.293 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2022-08-14 20:05:48.295 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.296 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.298 +03:00 [DBG] Executing DbCommand [Parameters=[@__get_Item_0='?' (DbType = Guid), @__get_Item_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE ([a].[UserId] = @__get_Item_0) AND ([a].[RoleId] = @__get_Item_1)
+2022-08-14 20:05:48.520 +03:00 [INF] Executed DbCommand (223ms) [Parameters=[@__get_Item_0='?' (DbType = Guid), @__get_Item_1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE ([a].[UserId] = @__get_Item_0) AND ([a].[RoleId] = @__get_Item_1)
+2022-08-14 20:05:48.524 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:05:48.525 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.526 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.534 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:05:48.535 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2022-08-14 20:05:48.536 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.538 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.539 +03:00 [DBG] Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2022-08-14 20:05:48.815 +03:00 [INF] Executed DbCommand (275ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2022-08-14 20:05:48.818 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:05:48.819 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.820 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.837 +03:00 [DBG] Context 'DBContext' started tracking 'IdentityUserRole<Guid>' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-08-14 20:05:48.840 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:05:48.840 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2022-08-14 20:05:48.842 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.843 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:48.846 +03:00 [DBG] Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RefreshToken], [a].[RefreshTokenExpiryTime], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2022-08-14 20:05:49.135 +03:00 [INF] Executed DbCommand (289ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RefreshToken], [a].[RefreshTokenExpiryTime], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2022-08-14 20:05:49.142 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:05:49.143 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:49.146 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:49.154 +03:00 [DBG] An entity of type 'User' tracked by 'DBContext' changed state from '"Unchanged"' to '"Modified"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-08-14 20:05:49.157 +03:00 [DBG] SaveChanges starting for 'DBContext'.
+2022-08-14 20:05:49.158 +03:00 [DBG] DetectChanges starting for 'DBContext'.
+2022-08-14 20:05:49.164 +03:00 [DBG] DetectChanges completed for 'DBContext'.
+2022-08-14 20:05:49.166 +03:00 [DBG] Opening connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:49.167 +03:00 [DBG] Opened connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:49.168 +03:00 [DBG] Beginning transaction with isolation level 'Unspecified'.
+2022-08-14 20:05:49.430 +03:00 [DBG] Began transaction with isolation level 'ReadCommitted'.
+2022-08-14 20:05:49.444 +03:00 [DBG] Executing update commands individually as the number of batchable commands (2) is smaller than the minimum batch size (4).
+2022-08-14 20:05:49.447 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:05:49.447 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2022-08-14 20:05:49.449 +03:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2022-08-14 20:05:49.635 +03:00 [INF] Executed DbCommand (186ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+2022-08-14 20:05:49.640 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:05:49.646 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2022-08-14 20:05:49.647 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (1ms).
+2022-08-14 20:05:49.650 +03:00 [DBG] Executing DbCommand [Parameters=[@p16='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [LockoutEnabled] = @p4, [LockoutEnd] = @p5, [NormalizedEmail] = @p6, [NormalizedUserName] = @p7, [PasswordHash] = @p8, [PhoneNumber] = @p9, [PhoneNumberConfirmed] = @p10, [RefreshToken] = @p11, [RefreshTokenExpiryTime] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2022-08-14 20:05:49.838 +03:00 [INF] Executed DbCommand (188ms) [Parameters=[@p16='?' (DbType = Guid), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p17='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [LockoutEnabled] = @p4, [LockoutEnd] = @p5, [NormalizedEmail] = @p6, [NormalizedUserName] = @p7, [PasswordHash] = @p8, [PhoneNumber] = @p9, [PhoneNumberConfirmed] = @p10, [RefreshToken] = @p11, [RefreshTokenExpiryTime] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+SELECT @@ROWCOUNT;
+2022-08-14 20:05:49.845 +03:00 [DBG] A data reader was disposed.
+2022-08-14 20:05:49.846 +03:00 [DBG] Committing transaction.
+2022-08-14 20:05:50.146 +03:00 [DBG] Committed transaction.
+2022-08-14 20:05:50.147 +03:00 [DBG] Closing connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:50.149 +03:00 [DBG] Closed connection to database 'nester77722_BoardGames' on server 'sql.bsite.net\MSSQL2016'.
+2022-08-14 20:05:50.150 +03:00 [DBG] Disposing transaction.
+2022-08-14 20:05:50.152 +03:00 [DBG] An entity of type 'IdentityUserRole<Guid>' tracked by 'DBContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-08-14 20:05:50.153 +03:00 [DBG] An entity of type 'User' tracked by 'DBContext' changed state from '"Modified"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2022-08-14 20:05:50.157 +03:00 [DBG] SaveChanges completed for 'DBContext' with 2 entities written to the database.
+2022-08-14 20:05:50.165 +03:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2022-08-14 20:05:50.171 +03:00 [DBG] No information found on request to perform content negotiation.
+2022-08-14 20:05:50.172 +03:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2022-08-14 20:05:50.173 +03:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2022-08-14 20:05:50.175 +03:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2022-08-14 20:05:50.177 +03:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2022-08-14 20:05:50.188 +03:00 [INF] Executed action BoardGames.API.Controllers.AuthController.Register (BoardGames.API) in 6357.2237ms
+2022-08-14 20:05:50.191 +03:00 [INF] Executed endpoint 'BoardGames.API.Controllers.AuthController.Register (BoardGames.API)'
+2022-08-14 20:05:50.198 +03:00 [DBG] 'DBContext' disposed.
+2022-08-14 20:05:50.202 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7202/api/Auth/register application/json 76 - 200 - application/json;+charset=utf-8 6825.8171ms
