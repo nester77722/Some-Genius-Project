@@ -1,5 +1,6 @@
 ﻿using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
+using BoardGames.Services.Services;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
@@ -32,6 +33,20 @@ namespace BoardGames.API.Controllers
             var mechanics = await _mechanicService.GetAllAsync();
 
             return Ok(mechanics);
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> GetById(string id)
+        {
+            var genre = await _mechanicService.GetAsync(id);
+
+            if (genre is null)
+            {
+                return NotFound(new { Message = $"Mechanic with id {id} was not found!" });
+            }
+
+            return Ok(genre);
         }
     }
 }

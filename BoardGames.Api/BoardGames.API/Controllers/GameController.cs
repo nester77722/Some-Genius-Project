@@ -33,5 +33,19 @@ namespace BoardGames.API.Controllers
 
             return Ok(games);
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<IActionResult> GetById(string id)
+        {
+            var game = await _gameService.GetAsync(id);
+
+            if (game is null)
+            {
+                return NotFound(new { Message = $"Game with id {id} was not found!" });
+            }
+
+            return Ok(game);
+        }
     }
 }

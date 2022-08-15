@@ -14,11 +14,11 @@ namespace BoardGames.API.Configurations
             CreateMap<GameDto, Game>().ForMember("Id", opt => opt.MapFrom(gameDto => gameDto.Id));
             //CreateMap<GameDto, Game>();
 
-            CreateMap<Mechanic, MechanicDto>();
+            CreateMap<Mechanic, MechanicDto>().ForMember("GameNames", opt => opt.MapFrom(genre => genre.Games.Select(g => g.Name))); ;
             CreateMap<MechanicDto, Mechanic>().ForMember("Id", opt => opt.MapFrom(mechanicDto => mechanicDto.Id));
             //CreateMap<MechanicDto, Mechanic>();
 
-            CreateMap<Genre, GenreDto>();
+            CreateMap<Genre, GenreDto>().ForMember("GameNames", opt => opt.MapFrom(genre => genre.Games.Select(g => g.Name)));
             CreateMap<GenreDto, Genre>().ForMember("Id", opt => opt.MapFrom(genreDto => genreDto.Id));
             //CreateMap<GenreDto, Genre>();
 

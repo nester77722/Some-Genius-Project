@@ -43,9 +43,31 @@ namespace BoardGames.Services.Services
             return result;
         }
 
-        public Task<MechanicDto> GetAsync(string id)
+        public async Task<MechanicDto> GetAsync(string id)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return null;
+            }
+
+            Guid mechanicId;
+
+            if (!Guid.TryParse(id, out mechanicId))
+            {
+                return null;
+            }
+
+            var mechanic = await _repository.GetAsync(mechanicId,
+                                                      include => include.Games);
+
+            if (mechanic is null)
+            {
+                return null;
+            }
+
+            var result = _mapper.Map<MechanicDto>(mechanic);
+
+            return result;
         }
 
         public Task<MechanicDto> UpdateAsync(MechanicDto mechanicDto)

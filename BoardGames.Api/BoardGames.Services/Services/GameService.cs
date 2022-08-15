@@ -56,9 +56,32 @@ namespace BoardGames.Services.Services
             return result;
         }
 
-        public Task<GameDto> GetAsync(string id)
+        public async Task<GameDto> GetAsync(string id)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                return null;
+            }
+
+            Guid gameId;
+
+            if (!Guid.TryParse(id, out gameId))
+            {
+                return null;
+            }
+
+            var game = await _gameRepository.GetAsync(gameId,
+                                                      include => include.Genre,
+                                                      include => include.Mechanics);
+
+            if (game is null)
+            {
+                return null;
+            }
+
+            var result = _mapper.Map<GameDto>(game);
+
+            return result;
         }
 
         public Task<GameDto> UpdateAsync(GameDto gameDto)
