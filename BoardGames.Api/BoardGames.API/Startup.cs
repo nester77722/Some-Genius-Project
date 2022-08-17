@@ -9,6 +9,7 @@ using Microsoft.OpenApi.Models;
 using System.Net.Security;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.Json.Serialization;
 
 namespace BoardGames.API
 {
@@ -25,21 +26,10 @@ namespace BoardGames.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy("CorsPolicy",
-            //        builder => builder.WithOrigins("http://localhost:4200")
-            //                          .WithOrigins("http://localhost:63342")
-            //                          .WithOrigins("http://localhost:65244")
-            //                          .AllowAnyMethod()
-            //                          .AllowAnyHeader()
-            //                          .AllowCredentials());
-            //});
 
-            services.Configure<KestrelServerOptions>(options =>
-            {
-                options.ConfigureHttpsDefaults(options =>
-                    options.ClientCertificateMode = ClientCertificateMode.NoCertificate);
+            services.AddControllers().AddJsonOptions(x => {
+                // serialize enums as strings in api responses (e.g. Role)
+                x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });
 
             var mapperConfig = new MapperConfiguration(mc =>

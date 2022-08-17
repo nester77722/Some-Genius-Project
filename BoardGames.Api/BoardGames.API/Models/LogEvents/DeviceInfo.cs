@@ -4,6 +4,6 @@ namespace BoardGames.API.Models.LogEvents
 {
     public class DeviceInfo
     {
-        public string Device { get; set; }
+        public Devices Device { get; set; }
     }
 }
