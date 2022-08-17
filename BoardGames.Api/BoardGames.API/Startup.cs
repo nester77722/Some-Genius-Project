@@ -2,7 +2,13 @@
 using BoardGames.API.Configurations;
 using BoardGames.API.Middleware;
 using BoardGames.API.StartupExtensions;
+using Microsoft.AspNetCore.Authentication.Certificate;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.OpenApi.Models;
+using System.Net.Security;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace BoardGames.API
 {
@@ -18,15 +24,22 @@ namespace BoardGames.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options =>
+            services.AddCors();
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("CorsPolicy",
+            //        builder => builder.WithOrigins("http://localhost:4200")
+            //                          .WithOrigins("http://localhost:63342")
+            //                          .WithOrigins("http://localhost:65244")
+            //                          .AllowAnyMethod()
+            //                          .AllowAnyHeader()
+            //                          .AllowCredentials());
+            //});
+
+            services.Configure<KestrelServerOptions>(options =>
             {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("http://localhost:4200")
-                                      .WithOrigins("http://localhost:63342")
-                                      .WithOrigins("http://localhost:65244")
-                                      .AllowAnyMethod()
-                                      .AllowAnyHeader()
-                                      .AllowCredentials());
+                options.ConfigureHttpsDefaults(options =>
+                    options.ClientCertificateMode = ClientCertificateMode.NoCertificate);
             });
 
             var mapperConfig = new MapperConfiguration(mc =>
@@ -52,7 +65,14 @@ namespace BoardGames.API
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseCors("CorsPolicy");
+            //app.UseCors("CorsPolicy");
+            app.UseCors(builder =>
+            {
+                builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+            });
             app.UseStaticFiles();
 
             if (env.IsDevelopment())
