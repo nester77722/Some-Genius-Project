@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace BoardGames.API.Models.LogEvents
+﻿namespace BoardGames.API.Models.LogEvents
 {
     public class DeviceInfo
     {

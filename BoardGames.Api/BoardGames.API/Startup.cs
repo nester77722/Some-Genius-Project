@@ -2,13 +2,7 @@
 using BoardGames.API.Configurations;
 using BoardGames.API.Middleware;
 using BoardGames.API.StartupExtensions;
-using Microsoft.AspNetCore.Authentication.Certificate;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.OpenApi.Models;
-using System.Net.Security;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
 using System.Text.Json.Serialization;
 
 namespace BoardGames.API
@@ -27,7 +21,8 @@ namespace BoardGames.API
         {
             services.AddCors();
 
-            services.AddControllers().AddJsonOptions(x => {
+            services.AddControllers().AddJsonOptions(x =>
+            {
                 // serialize enums as strings in api responses (e.g. Role)
                 x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
             });

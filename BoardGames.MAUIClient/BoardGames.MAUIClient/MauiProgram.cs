@@ -29,7 +29,7 @@ public static class MauiProgram
 #if ANDROID
 												requestUri: "http://10.0.2.2:5202/api/Logger",
 #else
-												requestUri: "http://localhost:5202/api/Logger",
+                                                requestUri: "http://localhost:5202/api/Logger",
 #endif
                                                 queueLimitBytes: null,
 												restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose,

@@ -52,7 +52,7 @@ public partial class MainPage : ContentPage
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 
-		Log.Information("Test");
+		Log.Error("Test");
 
 	}
 }

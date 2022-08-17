@@ -1,9 +1,6 @@
 ﻿using BoardGames.API.Models.LogEvents;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Serilog;
-using System.Text.Json.Serialization;
 
 namespace BoardGames.API.Controllers
 {
@@ -11,11 +8,13 @@ namespace BoardGames.API.Controllers
     [ApiController]
     public class LoggerController : ControllerBase
     {
-
         [HttpPost]
-        public async Task PostRawBufferManual(LogEvent[] logs)
+        public void PostRawBufferManual(LogEvent[] logs)
         {
-
+            foreach (var log in logs)
+            {
+                Log.ForContext("Device", log.DeviceInfo.Device.ToString()).Write(log.Level, log.MessageTemplate);
+            }
         }
     }
 }

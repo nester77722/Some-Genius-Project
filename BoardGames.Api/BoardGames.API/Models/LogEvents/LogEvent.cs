@@ -1,5 +1,4 @@
-﻿using BoardGames.API.Controllers;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace BoardGames.API.Models.LogEvents
 {

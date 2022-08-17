@@ -1,7 +1,6 @@
 using BoardGames.API;
+using BoardGames.API.Configurations.Serilog;
 using Serilog;
-using System.Net.Sockets;
-using System.Net;
 
 namespace WebApi
 {
@@ -28,7 +27,7 @@ namespace WebApi
             var host = Host.CreateDefaultBuilder(args)
                 .UseSerilog((context, services, loggerConfiguration) => loggerConfiguration
                 .ReadFrom.Configuration(context.Configuration)
-                .Enrich.FromLogContext())
+                .Enrich.With<RemovePropertiesEnricher>())
                 .UseConsoleLifetime()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
