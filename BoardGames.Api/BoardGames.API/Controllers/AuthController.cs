@@ -101,15 +101,21 @@ namespace BoardGames.API.Controllers
         {
             var dictionary = new ModelStateDictionary();
             var errorStrings = string.Empty;
+            var response = new
+            {
+                Message = "User Registration Failed",
+                Errors = new List<string>()
+            };
 
             foreach (var error in errors)
             {
                 dictionary.AddModelError(error.Code, error.Description);
                 errorStrings += $"Error code: {error.Code}, error description: {error.Description}\n";
+                response.Errors.Add(error.Description);
             }
             Log.Error($"Error in trying to register. Errors: \n{errorStrings}");
 
-            return new BadRequestObjectResult(new { Message = "User Registration Failed", Errors = dictionary });
+            return new BadRequestObjectResult(response);
         }
 
         private async Task<User> ValidateUser(LoginModel loginModel)
