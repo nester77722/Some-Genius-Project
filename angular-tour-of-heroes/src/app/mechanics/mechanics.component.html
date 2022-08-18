@@ -1,0 +1,11 @@
+<h2>My Mechanics</h2>
+
+<ul class="heroes">
+  <li *ngFor="let mechanic of mechanics">
+    <div>
+      <a routerLink="/mechanicdetail/{{mechanic.id}}">
+        <span class="badge">{{mechanic.id}}</span> <span>{{mechanic.name}}</span>
+      </a>
+    </div>
+  </li>
+</ul>

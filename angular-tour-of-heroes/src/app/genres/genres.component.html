@@ -1,0 +1,11 @@
+<h2>My Genres</h2>
+
+<ul class="heroes">
+  <li *ngFor="let genre of genres">
+    <div>
+    <a routerLink="/genredetail/{{genre.id}}">
+      <span class="badge">{{genre.id}}</span> <span>{{genre.name}}</span>
+    </a>
+    </div>
+  </li>
+</ul>

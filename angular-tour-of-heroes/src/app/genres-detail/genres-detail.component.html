@@ -1,0 +1,10 @@
+<div *ngIf="genre">
+
+  <h2>{{genre.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{genre.id}}</div>
+  <div>
+    <span> {{genre.name}}</span>
+  </div>
+
+</div>
+<button type="button" (click)="goBack()">go back</button>
