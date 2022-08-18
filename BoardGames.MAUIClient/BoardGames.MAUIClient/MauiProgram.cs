@@ -17,10 +17,10 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		//builder.Configuration
-		//	.AddJsonStream(
-		//	Assembly.GetExecutingAssembly()
-		//	.GetManifestResourceStream("BoardGames.MAUIClient.appsettings.json"));
+		builder.Configuration
+			.AddJsonStream(
+			Assembly.GetExecutingAssembly()
+			.GetManifestResourceStream("BoardGames.MAUIClient.appsettings.json"));
 
 		var config = builder.Configuration;
 
