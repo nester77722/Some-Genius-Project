@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GenresComponent } from './genres/genres.component';
 import { GenresDetailComponent } from './genres-detail/genres-detail.component';
 import { MechanicsComponent } from './mechanics/mechanics.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { MechanicsComponent } from './mechanics/mechanics.component';
     DashboardComponent,
     GenresComponent,
     GenresDetailComponent,
-    MechanicsComponent
+    MechanicsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

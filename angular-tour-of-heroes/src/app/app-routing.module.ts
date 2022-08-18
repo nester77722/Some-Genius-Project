@@ -6,6 +6,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import {GenresComponent} from "./genres/genres.component";
 import {GenresDetailComponent} from "./genres-detail/genres-detail.component";
 import {MechanicsComponent} from "./mechanics/mechanics.component";
+import {RegisterComponent} from "./register/register.component";
 
 const routes: Routes = [
   { path: 'heroes', component: HeroesComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: 'detail/:id', component: HeroDetailComponent},
   {path: 'genres', component: GenresComponent},
   {path: 'genredetail/:id', component:GenresDetailComponent},
-  {path: 'mechanics', component: MechanicsComponent}
+  {path: 'mechanics', component: MechanicsComponent},
+  {path: 'register', component:RegisterComponent},
 ];
 
 @NgModule({

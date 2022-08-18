@@ -4,15 +4,17 @@ export interface Hero {
 }
 export interface Genre{
   id:string;
-  name:string;
+  name?:string;
+  games?:Game[]
 }
 export interface Mechanic{
   id:string;
-  name:string;
+  name?:string;
+  games?:Game[]
 }
 export interface Game{
   id:string;
-  name:string;
-  genre:Genre;
-  mechanics: Mechanic[];
+  name?:string;
+  genre?:Genre;
+  mechanics?: Mechanic[];
 }
