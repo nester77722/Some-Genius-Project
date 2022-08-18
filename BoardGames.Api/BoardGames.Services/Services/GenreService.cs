@@ -37,7 +37,8 @@ namespace BoardGames.Services.Services
 
         public async Task<List<GenreDto>> GetAllAsync()
         {
-            var genres = await _repository.GetAllAsNoTracking().ToListAsync();
+            var genres = await _repository.GetAllAsNoTracking()
+                                          .ToListAsync();
 
             var result = _mapper.Map<List<GenreDto>>(genres);
 

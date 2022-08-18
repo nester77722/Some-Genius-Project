@@ -4,6 +4,7 @@ using BoardGames.API.Middleware;
 using BoardGames.API.StartupExtensions;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
+using Newtonsoft;
 
 namespace BoardGames.API
 {
@@ -21,11 +22,16 @@ namespace BoardGames.API
         {
             services.AddCors();
 
-            services.AddControllers().AddJsonOptions(x =>
-            {
-                // serialize enums as strings in api responses (e.g. Role)
-                x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-            });
+            services.AddControllers()
+                .AddJsonOptions(x =>
+                {
+                    // serialize enums as strings in api responses (e.g. Role)
+                    x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                })
+                .AddNewtonsoftJson(x =>
+                {
+                    x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });
 
             var mapperConfig = new MapperConfiguration(mc =>
             {

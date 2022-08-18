@@ -24,13 +24,13 @@ namespace BoardGames.Services.Services
         {
             var game = _mapper.Map<Game>(gameDto);
             game.Id = Guid.NewGuid();
-            game.GenreId = Guid.Parse(gameDto.GenreId);
+            //game.GenreId = Guid.Parse(gameDto.GenreId);
 
-            var ids = _mapper.Map<List<Guid>>(gameDto.MechanicIds);
+            //var ids = _mapper.Map<List<Guid>>(gameDto.MechanicIds);
 
-            var mechanics = _mechanicRepository.GetAll().Where(me => ids.Contains(me.Id));
+            //var mechanics = _mechanicRepository.GetAll().Where(me => ids.Contains(me.Id));
 
-            game.Mechanics = await mechanics.ToListAsync();
+            //game.Mechanics = await mechanics.ToListAsync();
 
             await _gameRepository.CreateAsync(game);
 
@@ -46,7 +46,7 @@ namespace BoardGames.Services.Services
 
         public async Task<List<GameDto>> GetAllAsync()
         {
-            var games = await _gameRepository.GetAllAsNoTracking()
+            var games = await _gameRepository.GetAll()
                                              .Include(g => g.Genre)
                                              .Include(g => g.Mechanics)
                                              .ToListAsync();

@@ -8,19 +8,15 @@ namespace BoardGames.API.Configurations
     {
         public AutoMapperProfile()
         {
-            CreateMap<Game, GameDto>().ForMember("GenreName", opt => opt.MapFrom(game => game.Genre.Name))
-                                      .ForMember("MechanicNames", opt => opt.MapFrom(game => game.Mechanics.Select(m => m.Name)))
-                                      .ForMember("MechanicIds", opt => opt.MapFrom(game => game.Mechanics.Select(m => m.Id)));
+            CreateMap<Game, GameDto>();
             CreateMap<GameDto, Game>().ForMember("Id", opt => opt.MapFrom(gameDto => gameDto.Id));
-            //CreateMap<GameDto, Game>();
 
-            CreateMap<Mechanic, MechanicDto>().ForMember("GameNames", opt => opt.MapFrom(genre => genre.Games.Select(g => g.Name))); ;
+            CreateMap<Mechanic, MechanicDto>();
             CreateMap<MechanicDto, Mechanic>().ForMember("Id", opt => opt.MapFrom(mechanicDto => mechanicDto.Id));
-            //CreateMap<MechanicDto, Mechanic>();
 
-            CreateMap<Genre, GenreDto>().ForMember("GameNames", opt => opt.MapFrom(genre => genre.Games.Select(g => g.Name)));
+            CreateMap<Genre, GenreDto>();
             CreateMap<GenreDto, Genre>().ForMember("Id", opt => opt.MapFrom(genreDto => genreDto.Id));
-            //CreateMap<GenreDto, Genre>();
+ 
 
             CreateMap<string, Guid>().ConvertUsing(s => Guid.Parse(s));
             CreateMap<string, Guid?>().ConvertUsing(s => string.IsNullOrWhiteSpace(s) ? (Guid?)null : Guid.Parse(s));

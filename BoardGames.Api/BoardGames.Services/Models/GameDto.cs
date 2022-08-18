@@ -4,9 +4,7 @@
     {
         public string? Id { get; set; }
         public string Name { get; set; }
-        public string GenreId { get; set; }
-        public string? GenreName { get; set; }
-        public IEnumerable<string>? MechanicNames { get; set; }
-        public IEnumerable<string> MechanicIds { get; set; }
+        public GenreDto Genre { get; set; }
+        public IEnumerable<MechanicDto> Mechanics { get; set; }
     }
 }
