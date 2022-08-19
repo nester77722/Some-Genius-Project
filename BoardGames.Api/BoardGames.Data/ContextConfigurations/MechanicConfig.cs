@@ -8,7 +8,9 @@ namespace BoardGames.Data.ContextConfigurations
     {
         public void Configure(EntityTypeBuilder<Mechanic> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasKey(m => m.Id);
+
+            builder.HasMany(m => m.Games).WithMany(g => g.Mechanics);
         }
     }
 }

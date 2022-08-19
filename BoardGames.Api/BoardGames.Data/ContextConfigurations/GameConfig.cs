@@ -10,9 +10,10 @@ namespace BoardGames.Data.ContextConfigurations
         {
             builder.HasKey(g => g.Id);
 
-            builder.HasOne(g => g.Genre);
-
-            builder.HasMany(g => g.Mechanics).WithMany(m => m.Games);
+            builder
+                .HasMany(g => g.Mechanics)
+                .WithMany(m => m.Games);
+            
         }
     }
 }

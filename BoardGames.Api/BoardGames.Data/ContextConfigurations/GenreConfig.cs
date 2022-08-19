@@ -9,7 +9,6 @@ namespace BoardGames.Data.ContextConfigurations
         public void Configure(EntityTypeBuilder<Genre> builder)
         {
             builder.HasKey(g => g.Id);
-            builder.HasMany(g => g.Games);
         }
     }
 }

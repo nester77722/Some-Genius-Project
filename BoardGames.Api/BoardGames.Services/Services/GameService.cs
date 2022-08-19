@@ -4,6 +4,7 @@ using BoardGames.Data.Repository;
 using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BoardGames.Services.Services
 {
@@ -11,26 +12,50 @@ namespace BoardGames.Services.Services
     {
         private readonly IRepository<Game> _gameRepository;
         private readonly IRepository<Mechanic> _mechanicRepository;
+        private readonly IRepository<Genre> _genreRepository;
         private readonly IMapper _mapper;
 
-        public GameService(IRepository<Game> repository, IMapper mapper, IRepository<Mechanic> mechanicRepository)
+        public GameService(IRepository<Game> repository, IMapper mapper, IRepository<Mechanic> mechanicRepository, IRepository<Genre> genreRepository)
         {
             _gameRepository = repository;
             _mapper = mapper;
             _mechanicRepository = mechanicRepository;
+            _genreRepository = genreRepository;
         }
 
         public async Task<GameDto> CreateAsync(GameDto gameDto)
         {
             var game = _mapper.Map<Game>(gameDto);
             game.Id = Guid.NewGuid();
-            //game.GenreId = Guid.Parse(gameDto.GenreId);
 
-            //var ids = _mapper.Map<List<Guid>>(gameDto.MechanicIds);
+            var genre = await _genreRepository.GetAsync(game.Genre.Id);
 
-            //var mechanics = _mechanicRepository.GetAll().Where(me => ids.Contains(me.Id));
+            if (genre is null)
+            {
+                throw new KeyNotFoundException($"Genre with id {game.Genre.Id} not exists.");
+            }
 
-            //game.Mechanics = await mechanics.ToListAsync();
+            game.Genre = genre;
+
+            var dbMechanics = await _mechanicRepository.GetAll().ToListAsync();
+
+            var dbMechanicIds = dbMechanics.Select(m => m.Id);
+
+            var gameMechanics = game.Mechanics;
+
+            var gameMechanicIds = gameMechanics.Select(m => m.Id);
+
+            var difference = gameMechanicIds.Where(t2 => !dbMechanicIds.Any(t1 => t2.Equals(t1)));
+
+            if (difference.Any())
+            {
+                string ids = "";
+                difference.ToList().ForEach(g => ids += g.ToString() + "\n");
+
+                throw new KeyNotFoundException($"Mechanics with these ids not exists.\nIds:{ids}");
+            }
+
+            game.Mechanics = dbMechanics.Where(x => gameMechanicIds.Contains(x.Id)).ToList();
 
             await _gameRepository.CreateAsync(game);
 
@@ -46,9 +71,10 @@ namespace BoardGames.Services.Services
 
         public async Task<List<GameDto>> GetAllAsync()
         {
-            var games = await _gameRepository.GetAll()
+            var games = await _gameRepository.GetAllAsNoTracking()
                                              .Include(g => g.Genre)
                                              .Include(g => g.Mechanics)
+                                             .AsSplitQuery()
                                              .ToListAsync();
 
             var result = _mapper.Map<List<GameDto>>(games);

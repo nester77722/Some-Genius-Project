@@ -4,6 +4,7 @@ using BoardGames.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BoardGames.Data.Migrations
 {
     [DbContext(typeof(DBContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    [Migration("20220818235235_Changes in configurations v6")]
+    partial class Changesinconfigurationsv6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,7 +30,10 @@ namespace BoardGames.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("GenreId")
+                    b.Property<Guid?>("GenreId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("GenreId1")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
@@ -38,6 +43,8 @@ namespace BoardGames.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("GenreId");
+
+                    b.HasIndex("GenreId1");
 
                     b.ToTable("Games");
                 });
@@ -293,10 +300,13 @@ namespace BoardGames.Data.Migrations
             modelBuilder.Entity("BoardGames.Data.Entities.Game", b =>
                 {
                     b.HasOne("BoardGames.Data.Entities.Genre", "Genre")
-                        .WithMany("Games")
+                        .WithMany()
                         .HasForeignKey("GenreId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("BoardGames.Data.Entities.Genre", null)
+                        .WithMany("Games")
+                        .HasForeignKey("GenreId1");
 
                     b.Navigation("Genre");
                 });
