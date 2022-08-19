@@ -19,7 +19,7 @@ namespace BoardGames.API.Configurations
  
 
             CreateMap<string, Guid>().ConvertUsing(s => Guid.Parse(s));
-            CreateMap<string, Guid?>().ConvertUsing(s => string.IsNullOrWhiteSpace(s) ? (Guid?)null : Guid.Parse(s));
+            CreateMap<string, Guid?>().ConvertUsing(s => string.IsNullOrWhiteSpace(s) ? null : Guid.Parse(s));
             CreateMap<Guid, string>().ConvertUsing(g => g.ToString("N"));
 
             CreateMap<String, Guid>().ConvertUsing(s => MapGuid(s));
