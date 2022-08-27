@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using BoardGames.Shared.Exceptions;
+using Serilog;
 using System.Net;
 using System.Text.Json;
 
@@ -24,7 +25,15 @@ namespace BoardGames.API.Middleware
                 var response = context.Response;
                 response.ContentType = "application/json";
 
-                response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                switch (error)
+                {
+                    case ServiceException e:
+                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        break;
+                    default:
+                        response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        break;
+                }
 
                 var result = JsonSerializer.Serialize(new { message = error?.Message });
                 Log.Error(DateTime.Now + ": " + error?.Message);

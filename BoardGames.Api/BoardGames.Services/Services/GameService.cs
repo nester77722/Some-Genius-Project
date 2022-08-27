@@ -3,6 +3,7 @@ using BoardGames.Data.Entities;
 using BoardGames.Data.Repository;
 using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
+using BoardGames.Shared.Exceptions.GameServiceExceptions;
 using Microsoft.EntityFrameworkCore;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -26,6 +27,17 @@ namespace BoardGames.Services.Services
         public async Task<GameDto> CreateAsync(GameDto gameDto)
         {
             var game = _mapper.Map<Game>(gameDto);
+
+            if (string.IsNullOrWhiteSpace(game.Name))
+            {
+                throw new InvalidNameException("Game name can't be empty.");
+            }
+
+            if (game.Name.Length < 4)
+            {
+                throw new InvalidNameException("Name lenght can't be less then 4");
+            }
+
             game.Id = Guid.NewGuid();
 
             var genre = await _genreRepository.GetAsync(game.Genre.Id);
