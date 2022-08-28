@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using BoardGames.MAUIClient.Extensions;
+using BoardGames.MAUIClient.Services;
+using BoardGames.MAUIClient.Services.Interfaces;
+using BoardGames.MAUIClient.Views;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 using System.Reflection;
 
@@ -22,24 +26,15 @@ public static class MauiProgram
 			Assembly.GetExecutingAssembly()
 			.GetManifestResourceStream("BoardGames.MAUIClient.appsettings.json"));
 
-		var config = builder.Configuration;
+		builder.Services.AddScoped<IAuthService, AuthService>();
+		builder.Services.AddScoped<IGenreService, GenreService>();
+		builder.Services.AddSingleton<GenresListPage>();
 
-		var loggerConfigurations = new LoggerConfiguration()
-											  .WriteTo.Http(
-#if ANDROID
-												requestUri: "http://10.0.2.2:5202/api/Logger",
-#else
-                                                requestUri: "http://localhost:5202/api/Logger",
-#endif
-                                                queueLimitBytes: null,
-												restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Verbose,
-												httpClient: new SerilogHttpClient())
-											  .Enrich.WithProperty("Device", DeviceInfo.Current.Platform)
 
-											  .Enrich.FromLogContext();
+		builder.ConfigureSerilog();
+		builder.ConfigureRefitClients();
 
-		Log.Logger = loggerConfigurations.CreateLogger();
-		builder.Logging.AddSerilog();
+		
 
 		return builder.Build();
 	}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BoardGames.MAUIClient.Views.GenresListPage"
+             Title="GenresListPage">
+    <StackLayout>
+        <Button Text="Добавить" Command="{Binding CreateGenreCommand}" />
+        <Button Text="Загрузить" Command="{Binding GetGenresCommand}"/>
+        <ListView x:Name="booksList" ItemsSource="{Binding Genres}"
+              SelectedItem="{Binding SelectedGenre, Mode=TwoWay}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Label Text="{Binding Name}" FontSize="Medium" />
+                                <Label Text="{Binding Id}" FontSize="Small" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
