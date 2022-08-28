@@ -9,12 +9,16 @@ namespace BoardGames.API.Controllers
     public class LoggerController : ControllerBase
     {
         [HttpPost]
-        public void PostRawBufferManual(LogEvent[] logs)
+        public void Test(object @object)
         {
-            foreach (var log in logs)
-            {
-                Log.ForContext("Device", log.DeviceInfo.Device.ToString()).Write(log.Level, log.MessageTemplate);
-            }
+
         }
+        //public void PostRawBufferManual(LogEvent[] logs)
+        //{
+        //    foreach (var log in logs)
+        //    {
+        //        Log.ForContext("Device", log.DeviceInfo.Device.ToString()).Write(log.Level, log.MessageTemplate);
+        //    }
+        //}
     }
 }

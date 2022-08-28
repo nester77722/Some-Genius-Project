@@ -47,5 +47,14 @@ namespace BoardGames.API.Controllers
 
             return Ok(genre);
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            await _genreService.DeleteAsync(id);
+
+            return Ok();
+        }
     }
 }

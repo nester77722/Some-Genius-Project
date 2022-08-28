@@ -3,6 +3,7 @@ using BoardGames.Data.Entities;
 using BoardGames.Data.Repository;
 using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
+using BoardGames.Shared.Exceptions.GenreServiceExceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace BoardGames.Services.Services
@@ -30,9 +31,25 @@ namespace BoardGames.Services.Services
             return result;
         }
 
-        public Task DeleteAsync(string id)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            Guid guid;
+            var isGuid = Guid.TryParse(id, out guid);
+
+            if (!isGuid)
+            {
+                throw new InvalidIdException("Invalid genre id");
+            }
+
+            var genre = await _repository.GetAsync(guid);
+
+            if (genre is null)
+            {
+                throw new InvalidIdException($"There isn't any genre with id {id}");
+            }
+
+            await _repository.DeleteAsync(genre);
+
         }
 
         public async Task<List<GenreDto>> GetAllAsync()
