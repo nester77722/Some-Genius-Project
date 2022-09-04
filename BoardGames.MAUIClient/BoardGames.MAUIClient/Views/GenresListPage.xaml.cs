@@ -6,10 +6,11 @@ namespace BoardGames.MAUIClient.Views;
 
 public partial class GenresListPage : ContentPage
 {
-    public GenresListPage(IGenreService genreService)
+    public GenresListPage(GenresListViewModel vm)
     {
         InitializeComponent();
-        BindingContext = new GenresListViewModel(genreService) { Navigation = this.Navigation };
+
+        BindingContext = vm;
     }
 
 }

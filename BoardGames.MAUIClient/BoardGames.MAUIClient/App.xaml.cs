@@ -5,10 +5,10 @@ namespace BoardGames.MAUIClient;
 
 public partial class App : Application
 {
-	public App(GenresListPage genresListPage, IGenreService genreService)
+	public App()
 	{
 		InitializeComponent();
 
-		MainPage = new NavigationPage(genresListPage);
+		MainPage = new AppShell();
 	}
 }

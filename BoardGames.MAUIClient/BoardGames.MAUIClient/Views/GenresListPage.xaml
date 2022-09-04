@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:BoardGames.MAUIClient.ViewModels"
              x:Class="BoardGames.MAUIClient.Views.GenresListPage"
              Title="GenresListPage">
-    <StackLayout>
+    <Grid RowDefinitions="100, Auto, *"
+          ColumnDefinitions=".75*, .25*"
+          Padding="10"
+          RowSpacing="10"
+          ColumnSpacing="10">
+
+        <Button Text="Добавить"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Command="{Binding CreateGenreCommand}"/>
+        <Button Text="Загрузить"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Command="{Binding GetGenresCommand}"/>
+
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Genres}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Удалить"
+                                           BackgroundColor="Red"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=DeleteGenreCommand}"
+                                           CommandParameter="{Binding .}"
+                                           />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=NavigateToGenreCommand}"
+                                                          CommandParameter="{Binding .}">
+                                        
+                                    </TapGestureRecognizer>
+                                </Frame.GestureRecognizers>
+                                <Label Text="{Binding Name}"
+                                        FontSize="24"/>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+
+    </Grid>
+
+    <!--<StackLayout>
         <Button Text="Добавить" Command="{Binding CreateGenreCommand}" />
         <Button Text="Загрузить" Command="{Binding GetGenresCommand}"/>
         <ListView x:Name="booksList" ItemsSource="{Binding Genres}"
-              SelectedItem="{Binding SelectedGenre, Mode=TwoWay}" HasUnevenRows="True">
+            SelectedItem="{Binding SelectedGenre, Mode=TwoWay}" HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -21,5 +71,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-    </StackLayout>
+    </StackLayout>-->
 </ContentPage>

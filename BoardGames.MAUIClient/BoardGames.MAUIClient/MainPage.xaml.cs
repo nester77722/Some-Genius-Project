@@ -35,7 +35,7 @@ namespace BoardGames.MAUIClient;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage(GenresListPage genresListPage)
+	public MainPage()
 	{
 
         InitializeComponent();

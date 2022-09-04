@@ -1,20 +1,30 @@
 ﻿using BoardGames.MAUIClient.Models;
+using BoardGames.MAUIClient.Services.Interfaces;
+using BoardGames.MAUIClient.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace BoardGames.MAUIClient.ViewModels
 {
-    public class GenreViewModel : ObservableObject
+    [QueryProperty("GenreId", "GenreId")]
+    public partial class GenreViewModel : ObservableObject, IQueryAttributable
     {
-        private GenresListViewModel _lvm;
+        private readonly IGenreService _genreService;
 
-        private readonly GenreModel _genre;
+        [ObservableProperty]
+        private GenreModel _genre;
 
-        public GenreViewModel()
+        [ObservableProperty]
+        private bool _isValid;
+
+        public GenreViewModel(IGenreService genreService)
         {
-            _genre = new GenreModel();
+
+            _genreService = genreService;
         }
 
         public GenreViewModel(GenreModel genre)
@@ -22,38 +32,51 @@ namespace BoardGames.MAUIClient.ViewModels
             _genre = genre;
         }
 
-        public GenresListViewModel ListViewModel
+        public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            get => _lvm;
-            set => SetProperty(ref _lvm, value, "ListViewModel");
-
-            //set
-            //{
-            //    if (lvm != value)
-            //    {
-            //        lvm = value;
-            //        OnPropertyChanged("ListViewModel");
-            //    }
-            //}
+            Genre = query["Genre"] as GenreModel;
+            Genre.PropertyChanged += CheckName;
         }
 
-        public string Name
+        [RelayCommand]
+        private async Task Back()
         {
-            get => _genre.Name;
-            set => SetProperty(_genre.Name, value, _genre, (g, n) => g.Name = n, "Name");
+            await Shell.Current.GoToAsync(nameof(GenresListPage));
         }
 
-        public string Id
+        [RelayCommand]
+        private async Task DeleteGenre()
         {
-            get => _genre.Id;
-        }
-
-        public bool IsValid
-        {
-            get
+            if (!string.IsNullOrWhiteSpace(_genre.Id) && _genre.Id != "0")
             {
-                return !string.IsNullOrEmpty(Name.Trim());
+                await _genreService.DeleteGenre(_genre);
             }
+            await Back();
+        }
+
+        [RelayCommand]
+        private async Task SaveGenre()
+        {
+            if (string.IsNullOrWhiteSpace(_genre.Id))
+            {
+                await _genreService.CreateGenre(_genre);
+            }
+
+
+            await Back();
+        }
+
+        private void CheckName(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Genre.Name))
+            {
+                IsValid = IsValidName();
+            }
+        }
+
+        private bool IsValidName()
+        {
+            return !string.IsNullOrWhiteSpace(Genre.Name) && Genre.Name.Length > 3;
         }
     }
 }

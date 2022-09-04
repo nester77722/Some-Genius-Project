@@ -1,4 +1,5 @@
-﻿using BoardGames.MAUIClient.Models;
+﻿using BoardGames.MAUIClient.Extensions;
+using BoardGames.MAUIClient.Models;
 using BoardGames.MAUIClient.Services.Interfaces;
 using BoardGames.MAUIClient.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -9,94 +10,64 @@ namespace BoardGames.MAUIClient.ViewModels
 {
     public partial class GenresListViewModel : ObservableObject
     {
-        private GenreViewModel _selectedGenre;
         private readonly IGenreService _genreService;
-        public ObservableCollection<GenreViewModel> Genres { get; set; }
 
-        //public ICommand CreateGenreCommand { protected set; get; }
-        //public ICommand DeleteGenreCommand { protected set; get; }
-        //public ICommand SaveGenreCommand { protected set; get; }
-        //public ICommand BackCommand { protected set; get; }
-
-        public INavigation Navigation { get; set; }
+        [ObservableProperty]
+        private ObservableCollection<GenreModel> _genres;
 
         public GenresListViewModel(IGenreService genreService)
         {
-            Genres = new ObservableCollection<GenreViewModel>();
-            //CreateGenreCommand = new Command(CreateGenre);
-            //DeleteGenreCommand = new Command(DeleteGenre);
-            //SaveGenreCommand = new Command(SaveGenre);
-            //BackCommand = new Command(Back);
+            Genres = new ObservableCollection<GenreModel>();
             _genreService = genreService;
 
             GetGenres();
         }
 
-        public GenreViewModel SelectedGenre
-        {
-            get { return _selectedGenre; }
-            set
-            {
-                var tempGenre = value;
-                _selectedGenre = null;
-                OnPropertyChanged("SelectedGenre");
-
-                Navigation.PushAsync(new GenrePage(tempGenre));
-            }
-        }
-
         #region Commands
 
         [RelayCommand]
-        private void CreateGenre()
+        private async Task NavigateToGenre(GenreModel genre)
         {
-            Navigation.PushAsync(new GenrePage(new GenreViewModel() { ListViewModel = this }));
-        }
-        [RelayCommand]
-        private void Back()
-        {
-            Navigation.PopAsync();
-        }
-        [RelayCommand]
-        private async void SaveGenre(object friendObject)
-        {
-            GenreViewModel genre = friendObject as GenreViewModel;
-            if (genre != null && genre.IsValid)
-            {
-                if (string.IsNullOrEmpty(genre.Id))
+            await Shell.Current.GoToAsync($"{nameof(GenrePage)}",
+                parameters: new Dictionary<string, object>
                 {
-                    await _genreService.CreateGenre(new GenreModel { Name = genre.Name });
-                }
-            }
+                    {"Genre", genre}
+                });
+        }
 
-            Back();
-            GetGenres();
+        [RelayCommand]
+        private async Task CreateGenre()
+        {
+            await NavigateToGenre(new GenreModel());
         }
         [RelayCommand]
-        private async void GetGenres()
+        private async Task DeleteGenre(GenreModel genre)
+        {
+            await _genreService.DeleteGenre(genre);
+
+            await GetGenres();
+        }
+        [RelayCommand]
+        private async Task Back()
+        {
+            await Shell.Current.GoToAsync("../");
+        }
+        
+        [RelayCommand]
+        private async Task GetGenres()
         {
             var genres = await _genreService.GetGenres();
 
-            var genreViewModels = genres.Select(x => new GenreViewModel(new GenreModel(x.Id, x.Name)) {ListViewModel = this });
+            var newCollection = new ObservableCollection<GenreModel>();
 
-            Genres.Clear();
+            foreach (var item in genres)
+            {
+                newCollection.Add(item);
+            }
 
-            foreach(var item in genreViewModels)
-            {
-                Genres.Add(item);
-            }
+            Genres = newCollection;
         }
-        [RelayCommand]
-        private async void DeleteGenre(object genreObject)
-        {
-            GenreViewModel genre = genreObject as GenreViewModel;
-            if (genre != null)
-            {
-                await _genreService.DeleteGenre(new GenreModel(genre.Id, genre.Name));
-            }
-            Back();
-            GetGenres();
-        }
+
         #endregion
     }
 }

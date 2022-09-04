@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace BoardGames.MAUIClient.Extensions
 {
-    public class ObservableRangeCollection<T> : ObservableCollection<T>
+    public static class ObservableCollectionExtensions
     {
-        public void AddRange(IEnumerable<T> newItems)
+        public static void ClearOneByOne<T>(this ObservableCollection<T> collection)
         {
-            foreach (var item in newItems)
+            foreach (var item in collection)
             {
-                Items.Add(item);
-                OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+                collection.Remove(item);
             }
         }
     }

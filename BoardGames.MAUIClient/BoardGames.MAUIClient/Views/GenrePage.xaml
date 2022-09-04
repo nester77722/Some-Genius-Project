@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:BoardGames.MAUIClient.Models"
+
              x:Class="BoardGames.MAUIClient.Views.GenrePage"
              Title="GenrePage">
     <StackLayout>
-        <StackLayout x:Name="friendStack">
+        <StackLayout BindingContext="{Binding Genre}">
             <Label Text="Имя" />
             <Entry Text="{Binding Name}" FontSize="Medium" />
         </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button Text="Добавить" Command="{Binding ListViewModel.SaveGenreCommand}" CommandParameter="{Binding}" />
-            <Button Text="Удалить" Command="{Binding ListViewModel.DeleteGenreCommand}" CommandParameter="{Binding}" />
-            <Button Text="Назад" Command="{Binding Path=ListViewModel.BackCommand}" />
+            <Button Text="Сохранить" Command="{Binding SaveGenreCommand}"
+                                     IsEnabled="{Binding IsValid}"/>
+            <Button Text="Удалить" Command="{Binding DeleteGenreCommand}"/>
+            <Button Text="Назад" Command="{Binding BackCommand}" />
         </StackLayout>
     </StackLayout>
 </ContentPage>

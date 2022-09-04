@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,22 +7,23 @@ using System.Threading.Tasks;
 
 namespace BoardGames.MAUIClient.Models
 {
-    public class GenreModel
+    public partial class GenreModel : ObservableObject
     {
         public GenreModel()
         {
-            Id = string.Empty;
-            Name = string.Empty;
+            _id = string.Empty;
+            _name = string.Empty;
         }
 
         public GenreModel(string id, string name)
         {
-            Id = id;
-            Name = name;
+            _id = id;
+            _name = name;
         }
-
-        public string? Id { get; set; }
-        public string? Name { get; set; }
+        [ObservableProperty]
+        private string? _id;
+        [ObservableProperty]
+        private string? _name;
         
     }
 }
