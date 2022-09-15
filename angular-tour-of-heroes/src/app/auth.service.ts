@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import {Config} from "./Config";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {Genre} from "./interfaces";
+import {catchError, map, Observable} from "rxjs";
+import {Genre, LoginModel, Tokens} from "./interfaces";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   private apiUrl = Config.apiUrl;
   private authUrl = 'api/auth'
   private httpOptionsJson = {
@@ -22,6 +21,13 @@ export class AuthService {
       email:email,
       username:userName,
       password:password,
+    },this.httpOptionsJson);
+  }
+  login(loginModel:LoginModel):Observable<any>{
+    const url = this.apiUrl + '/' + this.authUrl + '/login';
+    return  this.httpClient.post<Tokens>(url, {
+      username:loginModel.username,
+      password:loginModel.password,
     },this.httpOptionsJson);
   }
 

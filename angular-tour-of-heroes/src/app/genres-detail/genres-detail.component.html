@@ -5,6 +5,9 @@
   <div>
     <span> {{genre.name}}</span>
   </div>
-
+  <h2>Games</h2>
+<div *ngFor="let game of genre.games">
+  <span>{{game.name}}</span>
+</div>
 </div>
 <button type="button" (click)="goBack()">go back</button>

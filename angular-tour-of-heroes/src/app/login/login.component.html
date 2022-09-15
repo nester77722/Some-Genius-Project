@@ -1,0 +1,13 @@
+<div>
+  <label>User name: </label>
+  <input  [(ngModel)]=" loginModel.username" placeholder="userName">
+</div>
+
+<div>
+  <label >Password: </label>
+  <input  [(ngModel)]="loginModel.password" placeholder="password">
+</div>
+<button type="button" (click)="submit()">Login</button>
+<div *ngFor ="let message of messages">
+  <p>{{message}}</p>
+</div>

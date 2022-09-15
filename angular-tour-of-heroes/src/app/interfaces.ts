@@ -18,3 +18,11 @@ export interface Game{
   genre?:Genre;
   mechanics?: Mechanic[];
 }
+export interface LoginModel{
+  username:string;
+  password:string;
+}
+export interface Tokens{
+  accessToken:string;
+  refreshToken:string;
+}

@@ -1,0 +1,13 @@
+<div *ngIf="mechanic">
+
+  <h2>{{mechanic.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{mechanic.id}}</div>
+  <div>
+    <span> {{mechanic.name}}</span>
+  </div>
+  <h2>Games</h2>
+  <div *ngFor="let game of mechanic.games">
+    <span>{{game.name}}</span>
+  </div>
+</div>
+<button type="button" (click)="goBack()">go back</button>
