@@ -30,6 +30,12 @@ namespace BoardGames.API.Middleware
                     case ServiceException e:
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
                         break;
+                    case RegisterException e:
+                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        break;
+                    case LoginException e:
+                        response.StatusCode = (int)(HttpStatusCode.Unauthorized);
+                        break;
                     default:
                         response.StatusCode = (int)HttpStatusCode.InternalServerError;
                         break;

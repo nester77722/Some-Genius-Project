@@ -35,7 +35,19 @@ namespace BoardGames.API.StartupExtensions
 
         public static void ConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddIdentity<User, IdentityRole<Guid>>().AddEntityFrameworkStores<DBContext>();
+            var passwordOptions = new PasswordOptions()
+            {
+                RequireNonAlphanumeric = false,
+                RequiredLength = 8
+            };
+
+            var userOptions = new UserOptions() { RequireUniqueEmail = true };
+
+            services.AddIdentity<User, IdentityRole<Guid>>(options =>
+            {
+                options.Password = passwordOptions;
+                options.User = userOptions;
+            }).AddEntityFrameworkStores<DBContext>();
 
             var jwtSection = configuration.GetSection("JwtBearerTokenSettings");
             services.Configure<JwtBearerTokenSettings>(jwtSection);

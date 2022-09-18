@@ -1,6 +1,7 @@
 ﻿using BoardGames.API.Models;
 using BoardGames.API.Services.Interfaces;
 using BoardGames.Data.Entities;
+using BoardGames.Shared.Exceptions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -27,17 +28,11 @@ namespace BoardGames.API.Controllers
         {
             if (!ModelState.IsValid || loginModel == null)
             {
-                Log.Error("Error in trying to login.");
-                return BadRequest("Invalid client request");
+                Log.Information("Error in trying to login.");
+                throw new LoginException("Invalid client request.");
             }
 
             User user = await ValidateUser(loginModel);
-
-            if (user == null)
-            {
-                Log.Information($"Error in trying to login. Incorrect userName or password. UserName: {loginModel.UserName}");
-                return Unauthorized(new { Message = "Incorrect Username or password!" });
-            }
 
             var roles = await _userManager.GetRolesAsync(user);
 
@@ -72,7 +67,7 @@ namespace BoardGames.API.Controllers
         {
             if (!ModelState.IsValid || registerModel == null)
             {
-                return new BadRequestObjectResult(new { Message = "User Registration Failed" });
+                throw new RegisterException("Invalid client request.");
             }
 
             var user = new User()
@@ -84,14 +79,14 @@ namespace BoardGames.API.Controllers
 
             if (!result.Succeeded)
             {
-                return ReturnBadRequest(result.Errors);
+                throw new RegisterException(result.Errors.Select(e => e.Description));
             }
 
             result = await _userManager.AddToRoleAsync(user, "User");
 
             if (!result.Succeeded)
             {
-                return ReturnBadRequest(result.Errors);
+                throw new RegisterException(result.Errors.Select(e => e.Description));
             }
 
             return Ok(new { Message = "User Reigstration Successful" });
@@ -121,16 +116,22 @@ namespace BoardGames.API.Controllers
         private async Task<User> ValidateUser(LoginModel loginModel)
         {
             var identityUser = await _userManager.FindByNameAsync(loginModel.UserName);
-            if (identityUser != null)
+
+            if (identityUser is null)
             {
-                var result = _userManager
+                throw new LoginException("Incorrect username.");
+            }
+
+            var result = _userManager
                             .PasswordHasher
                             .VerifyHashedPassword(identityUser, identityUser.PasswordHash, loginModel.Password);
 
-                return result == PasswordVerificationResult.Failed ? null : identityUser;
+            if (result == PasswordVerificationResult.Failed)
+            {
+                throw new LoginException("Incorrect password.");
             }
 
-            return null;
+            return identityUser;
         }
     }
 }
