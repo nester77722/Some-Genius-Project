@@ -1,20 +1,27 @@
 <div class="background-color-main">
-<h1>{{title}}</h1>
-<nav>
-  <div *ngIf="!isLoggedIn">
-    <a routerLink="/register">Register</a>
-    <a routerLink="/login">Login</a>
+  <div class="main-wrapper">
+    <h1 style="margin-bottom: 20px;" class="h1-header"><span class="main-name">{{title}}</span>
+      <span class="route-register">
+  <a routerLink="/register" class="a-other">Register</a>
+  <a routerLink="/login" class="a-other">Login</a>
+        </span>
+</h1>
+
+<nav class="main-nav">
+  <div *ngIf="!isLoggedIn" class="register-nav">
+
 
   </div>
   <div  *ngIf="isLoggedIn">
     <button (click)="logOut()">LogOut</button>
   </div>
-
+<div class="main-routes">
   <a routerLink="/genres">Genres</a>
   <a routerLink="/mechanics">Mechanics</a>
   <a routerLink="/games">Games</a>
-
+</div>
 </nav>
+  </div>
 <div>
   <div class="other-page-btn" routerLink="/other">
     <a  class="a-other">OtherPage</a>
