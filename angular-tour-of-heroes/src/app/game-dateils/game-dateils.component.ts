@@ -17,6 +17,7 @@ export class GameDateilsComponent implements OnInit {
               private location: Location) { }
 
   ngOnInit(): void {
+    this.getGame();
   }
   getGame(): void {
     const id = this.route.snapshot.paramMap.get('id');

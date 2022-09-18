@@ -10,8 +10,4 @@
     <PackageReference Include="Serilog.Sinks.Http" Version="8.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Exceptions\MechanicServiceException\" />
-  </ItemGroup>
-
 </Project>

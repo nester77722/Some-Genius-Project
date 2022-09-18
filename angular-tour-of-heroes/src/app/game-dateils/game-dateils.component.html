@@ -1,9 +1,11 @@
 <div *ngIf="game">
   <h2>{{game.name}}</h2>
   <span>
+    <h3>Genre</h3>
     <p>
       {{game.genre.name}}
     </p>
+    <h3>Mechanics</h3>
     <div *ngFor="let mechanic of game.mechanics">
       {{mechanic.name}}
     </div>
