@@ -35,7 +35,11 @@ namespace BoardGames.API.Middleware
                         break;
                 }
 
-                var result = JsonSerializer.Serialize(new { message = error?.Message });
+                var result = JsonSerializer.Serialize(new
+                {
+                    message = error?.Message,
+                    serviceName = (error as ServiceException)?.ServiceName
+                });
                 Log.Error(DateTime.Now + ": " + error?.Message);
                 await response.WriteAsync(result);
             }

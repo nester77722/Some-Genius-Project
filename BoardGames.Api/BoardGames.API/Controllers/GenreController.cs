@@ -17,19 +17,19 @@ namespace BoardGames.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] GenreDto genreDto)
+        public async Task<IActionResult> Create([FromBody] CreateGenreDto genreDto)
         {
-            genreDto = await _genreService.CreateAsync(genreDto);
+            var result = await _genreService.CreateAsync(genreDto);
 
-            Log.Information($"Added genre with id: {genreDto.Id} to database.");
+            Log.Information($"Added genre with id: {result.Id} to database.");
 
-            return Ok(genreDto);
+            return Ok(result);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var genres = await _genreService.GetAllAsync();
+            var genres = await _genreService.GetAllWithoutGamesAsync();
 
             return Ok(genres);
         }

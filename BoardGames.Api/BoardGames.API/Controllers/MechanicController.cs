@@ -17,19 +17,19 @@ namespace BoardGames.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] MechanicDto mechanicDto)
+        public async Task<IActionResult> Create([FromBody] CreateMechanicDto mechanicDto)
         {
-            mechanicDto = await _mechanicService.CreateAsync(mechanicDto);
+            var result = await _mechanicService.CreateAsync(mechanicDto);
 
-            Log.Information($"Added mechanic with id: {mechanicDto.Id} to database.");
+            Log.Information($"Added mechanic with id: {result.Id} to database.");
 
-            return Ok(mechanicDto);
+            return Ok(result);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var mechanics = await _mechanicService.GetAllAsync();
+            var mechanics = await _mechanicService.GetAllWithoutGamesAsync();
 
             return Ok(mechanics);
         }

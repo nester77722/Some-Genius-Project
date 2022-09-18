@@ -1,6 +1,5 @@
 ﻿using BoardGames.API.Models.LogEvents;
 using Microsoft.AspNetCore.Mvc;
-using Serilog;
 
 namespace BoardGames.API.Controllers
 {
@@ -9,9 +8,9 @@ namespace BoardGames.API.Controllers
     public class LoggerController : ControllerBase
     {
         [HttpPost]
-        public void Test(object @object)
+        public void Test(dynamic log)
         {
-
+            var test = log as LogEvent;
         }
         //public void PostRawBufferManual(LogEvent[] logs)
         //{

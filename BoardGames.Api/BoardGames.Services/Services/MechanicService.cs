@@ -3,6 +3,7 @@ using BoardGames.Data.Entities;
 using BoardGames.Data.Repository;
 using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
+using BoardGames.Shared.Exceptions.MechanicServiceExceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace BoardGames.Services.Services
@@ -18,14 +19,25 @@ namespace BoardGames.Services.Services
             _repository = repository;
         }
 
-        public async Task<MechanicDto> CreateAsync(MechanicDto mechanicDto)
+        public async Task<GetMechanicWithGamesDto> CreateAsync(CreateMechanicDto mechanicDto)
         {
             var mechanic = _mapper.Map<Mechanic>(mechanicDto);
+
+            if (string.IsNullOrWhiteSpace(mechanic.Name))
+            {
+                throw new InvalidNameException("Mechanic name can't be empty.");
+            }
+
+            if (mechanic.Name.Length < 4)
+            {
+                throw new InvalidNameException("Mechanic name's lenght can't be less then 4");
+            }
+
             mechanic.Id = Guid.NewGuid();
 
             await _repository.CreateAsync(mechanic);
 
-            var result = _mapper.Map<MechanicDto>(mechanic);
+            var result = _mapper.Map<GetMechanicWithGamesDto>(mechanic);
 
             return result;
         }
@@ -35,15 +47,23 @@ namespace BoardGames.Services.Services
             throw new NotImplementedException();
         }
 
-        public async Task<List<MechanicDto>> GetAllAsync()
+        public async Task<List<GetMechanicWithGamesDto>> GetAllAsync()
         {
             var mechanics = await _repository.GetAllAsNoTracking().ToListAsync();
-            var result = _mapper.Map<List<MechanicDto>>(mechanics);
+            var result = _mapper.Map<List<GetMechanicWithGamesDto>>(mechanics);
 
             return result;
         }
 
-        public async Task<MechanicDto> GetAsync(string id)
+        public async Task<List<GetMechanicWithoutGamesDto>> GetAllWithoutGamesAsync()
+        {
+            var mechanics = await _repository.GetAllAsNoTracking().ToListAsync();
+            var result = _mapper.Map<List<GetMechanicWithoutGamesDto>>(mechanics);
+
+            return result;
+        }
+
+        public async Task<GetMechanicWithGamesDto> GetAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
@@ -65,12 +85,12 @@ namespace BoardGames.Services.Services
                 return null;
             }
 
-            var result = _mapper.Map<MechanicDto>(mechanic);
+            var result = _mapper.Map<GetMechanicWithGamesDto>(mechanic);
 
             return result;
         }
 
-        public Task<MechanicDto> UpdateAsync(MechanicDto mechanicDto)
+        public Task<GetMechanicWithGamesDto> UpdateAsync(GetMechanicWithGamesDto mechanicDto)
         {
             throw new NotImplementedException();
         }

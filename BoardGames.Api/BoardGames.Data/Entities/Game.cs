@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace BoardGames.Data.Entities
+﻿namespace BoardGames.Data.Entities
 {
     public class Game : IEntity
     {

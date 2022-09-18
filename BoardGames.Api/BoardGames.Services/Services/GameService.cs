@@ -5,7 +5,6 @@ using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
 using BoardGames.Shared.Exceptions.GameServiceExceptions;
 using Microsoft.EntityFrameworkCore;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BoardGames.Services.Services
 {
@@ -24,9 +23,9 @@ namespace BoardGames.Services.Services
             _genreRepository = genreRepository;
         }
 
-        public async Task<GameDto> CreateAsync(GameDto gameDto)
+        public async Task<GetGameDto> CreateAsync(CreateGameDto gameDto)
         {
-            var game = _mapper.Map<Game>(gameDto);
+            var game = new Game() { Name = gameDto.Name };
 
             if (string.IsNullOrWhiteSpace(game.Name))
             {
@@ -35,16 +34,16 @@ namespace BoardGames.Services.Services
 
             if (game.Name.Length < 4)
             {
-                throw new InvalidNameException("Name lenght can't be less then 4");
+                throw new InvalidNameException("Game name's lenght can't be less then 4");
             }
 
             game.Id = Guid.NewGuid();
 
-            var genre = await _genreRepository.GetAsync(game.Genre.Id);
+            var genre = await _genreRepository.GetAsync(gameDto.GenreId);
 
             if (genre is null)
             {
-                throw new KeyNotFoundException($"Genre with id {game.Genre.Id} not exists.");
+                throw new InvalidGenreException($"Genre with id {gameDto.GenreId} not exists.");
             }
 
             game.Genre = genre;
@@ -55,7 +54,7 @@ namespace BoardGames.Services.Services
 
             var gameMechanics = game.Mechanics;
 
-            var gameMechanicIds = gameMechanics.Select(m => m.Id);
+            var gameMechanicIds = gameDto.MechanicIds;
 
             var difference = gameMechanicIds.Where(t2 => !dbMechanicIds.Any(t1 => t2.Equals(t1)));
 
@@ -64,14 +63,14 @@ namespace BoardGames.Services.Services
                 string ids = "";
                 difference.ToList().ForEach(g => ids += g.ToString() + "\n");
 
-                throw new KeyNotFoundException($"Mechanics with these ids not exists.\nIds:{ids}");
+                throw new InvalidMechanicException($"Mechanics with these ids not exists.\nIds:{ids}");
             }
 
             game.Mechanics = dbMechanics.Where(x => gameMechanicIds.Contains(x.Id)).ToList();
 
             await _gameRepository.CreateAsync(game);
 
-            var result = _mapper.Map<GameDto>(game);
+            var result = _mapper.Map<GetGameDto>(game);
 
             return result;
         }
@@ -81,7 +80,7 @@ namespace BoardGames.Services.Services
             throw new NotImplementedException();
         }
 
-        public async Task<List<GameDto>> GetAllAsync()
+        public async Task<List<GetGameWithoutDetails>> GetAllAsync()
         {
             var games = await _gameRepository.GetAllAsNoTracking()
                                              .Include(g => g.Genre)
@@ -89,12 +88,12 @@ namespace BoardGames.Services.Services
                                              .AsSplitQuery()
                                              .ToListAsync();
 
-            var result = _mapper.Map<List<GameDto>>(games);
+            var result = _mapper.Map<List<GetGameWithoutDetails>>(games);
 
             return result;
         }
 
-        public async Task<GameDto> GetAsync(string id)
+        public async Task<GetGameDto> GetAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
@@ -117,12 +116,12 @@ namespace BoardGames.Services.Services
                 return null;
             }
 
-            var result = _mapper.Map<GameDto>(game);
+            var result = _mapper.Map<GetGameDto>(game);
 
             return result;
         }
 
-        public Task<GameDto> UpdateAsync(GameDto gameDto)
+        public Task<GetGameDto> UpdateAsync(GetGameDto gameDto)
         {
             throw new NotImplementedException();
         }

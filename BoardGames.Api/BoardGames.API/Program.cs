@@ -28,7 +28,7 @@ namespace WebApi
                 .UseSerilog((context, services, loggerConfiguration) => loggerConfiguration
                 .ReadFrom.Configuration(context.Configuration)
                 .Enrich.With<RemovePropertiesEnricher>()
-	            .Enrich.WithProperty("Device", "API")
+                .Enrich.WithProperty("Device", "API")
                 )
                 .UseConsoleLifetime()
                 .ConfigureWebHostDefaults(webBuilder =>

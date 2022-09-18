@@ -4,10 +4,11 @@ namespace BoardGames.Services.Intefraces
 {
     public interface IGenreService
     {
-        public Task<List<GenreDto>> GetAllAsync();
-        public Task<GenreDto> GetAsync(string id);
-        public Task<GenreDto> CreateAsync(GenreDto genreDto);
-        public Task<GenreDto> UpdateAsync(GenreDto genreDto);
+        public Task<List<GetGenreWithGamesDto>> GetAllAsync();
+        public Task<List<GetGenreWithoutGamesDto>> GetAllWithoutGamesAsync();
+        public Task<GetGenreWithGamesDto> GetAsync(string id);
+        public Task<GetGenreWithGamesDto> CreateAsync(CreateGenreDto genreDto);
+        public Task<GetGenreWithGamesDto> UpdateAsync(GetGenreWithGamesDto genreDto);
         public Task DeleteAsync(string id);
     }
 }

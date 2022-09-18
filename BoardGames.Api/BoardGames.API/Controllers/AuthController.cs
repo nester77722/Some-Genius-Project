@@ -35,7 +35,7 @@ namespace BoardGames.API.Controllers
 
             if (user == null)
             {
-                Log.Error($"Error in trying to login. Incorrect userName or password. UserName: {loginModel.UserName}");
+                Log.Information($"Error in trying to login. Incorrect userName or password. UserName: {loginModel.UserName}");
                 return Unauthorized(new { Message = "Incorrect Username or password!" });
             }
 

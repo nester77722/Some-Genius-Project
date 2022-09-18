@@ -4,7 +4,6 @@ using BoardGames.API.Middleware;
 using BoardGames.API.StartupExtensions;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
-using Newtonsoft;
 
 namespace BoardGames.API
 {

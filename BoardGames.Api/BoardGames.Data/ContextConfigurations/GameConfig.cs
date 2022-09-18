@@ -13,7 +13,7 @@ namespace BoardGames.Data.ContextConfigurations
             builder
                 .HasMany(g => g.Mechanics)
                 .WithMany(m => m.Games);
-            
+
         }
     }
 }

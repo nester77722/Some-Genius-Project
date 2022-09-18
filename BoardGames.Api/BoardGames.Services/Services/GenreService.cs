@@ -19,14 +19,25 @@ namespace BoardGames.Services.Services
             _repository = repository;
         }
 
-        public async Task<GenreDto> CreateAsync(GenreDto genreDto)
+        public async Task<GetGenreWithGamesDto> CreateAsync(CreateGenreDto genreDto)
         {
             var genre = _mapper.Map<Genre>(genreDto);
+
+            if (string.IsNullOrWhiteSpace(genre.Name))
+            {
+                throw new InvalidNameException("Genre name can't be empty.");
+            }
+
+            if (genre.Name.Length < 4)
+            {
+                throw new InvalidNameException("Genre name's lenght can't be less then 4");
+            }
+
             genre.Id = Guid.NewGuid();
 
             await _repository.CreateAsync(genre);
 
-            var result = _mapper.Map<GenreDto>(genre);
+            var result = _mapper.Map<GetGenreWithGamesDto>(genre);
 
             return result;
         }
@@ -52,17 +63,27 @@ namespace BoardGames.Services.Services
 
         }
 
-        public async Task<List<GenreDto>> GetAllAsync()
+        public async Task<List<GetGenreWithGamesDto>> GetAllAsync()
         {
             var genres = await _repository.GetAllAsNoTracking()
                                           .ToListAsync();
 
-            var result = _mapper.Map<List<GenreDto>>(genres);
+            var result = _mapper.Map<List<GetGenreWithGamesDto>>(genres);
 
             return result;
         }
 
-        public async Task<GenreDto> GetAsync(string id)
+        public async Task<List<GetGenreWithoutGamesDto>> GetAllWithoutGamesAsync()
+        {
+            var genres = await _repository.GetAllAsNoTracking()
+                                          .ToListAsync();
+
+            var result = _mapper.Map<List<GetGenreWithoutGamesDto>>(genres);
+
+            return result;
+        }
+
+        public async Task<GetGenreWithGamesDto> GetAsync(string id)
         {
             if (string.IsNullOrWhiteSpace(id))
             {
@@ -84,12 +105,12 @@ namespace BoardGames.Services.Services
                 return null;
             }
 
-            var result = _mapper.Map<GenreDto>(genre);
+            var result = _mapper.Map<GetGenreWithGamesDto>(genre);
 
             return result;
         }
 
-        public Task<GenreDto> UpdateAsync(GenreDto genreDto)
+        public Task<GetGenreWithGamesDto> UpdateAsync(GetGenreWithGamesDto genreDto)
         {
             throw new NotImplementedException();
         }

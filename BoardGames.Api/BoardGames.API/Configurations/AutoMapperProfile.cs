@@ -8,15 +8,21 @@ namespace BoardGames.API.Configurations
     {
         public AutoMapperProfile()
         {
-            CreateMap<Game, GameDto>();
-            CreateMap<GameDto, Game>().ForMember("Id", opt => opt.MapFrom(gameDto => gameDto.Id));
+            CreateMap<Game, GetGameDto>();
+            CreateMap<Game, GetGameWithoutDetails>();
+            CreateMap<CreateGameDto, Game>();
+            CreateMap<GetGameDto, Game>().ForMember("Id", opt => opt.MapFrom(gameDto => gameDto.Id));
 
-            CreateMap<Mechanic, MechanicDto>();
-            CreateMap<MechanicDto, Mechanic>().ForMember("Id", opt => opt.MapFrom(mechanicDto => mechanicDto.Id));
+            CreateMap<Mechanic, GetMechanicWithGamesDto>();
+            CreateMap<Mechanic, GetMechanicWithoutGamesDto>();
+            CreateMap<GetMechanicWithGamesDto, Mechanic>().ForMember("Id", opt => opt.MapFrom(mechanicDto => mechanicDto.Id));
+            CreateMap<CreateMechanicDto, Mechanic>();
 
-            CreateMap<Genre, GenreDto>();
-            CreateMap<GenreDto, Genre>().ForMember("Id", opt => opt.MapFrom(genreDto => genreDto.Id));
- 
+            CreateMap<Genre, GetGenreWithGamesDto>();
+            CreateMap<Genre, GetGenreWithoutGamesDto>();
+            CreateMap<GetGenreWithGamesDto, Genre>().ForMember("Id", opt => opt.MapFrom(genreDto => genreDto.Id));
+            CreateMap<CreateGenreDto, Genre>();
+
 
             CreateMap<string, Guid>().ConvertUsing(s => Guid.Parse(s));
             CreateMap<string, Guid?>().ConvertUsing(s => string.IsNullOrWhiteSpace(s) ? null : Guid.Parse(s));
