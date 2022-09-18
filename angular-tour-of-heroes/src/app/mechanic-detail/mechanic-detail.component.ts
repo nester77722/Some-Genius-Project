@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Genre, Mechanic} from "../interfaces";
 import {ActivatedRoute} from "@angular/router";
-import {GenreService} from "../genre.service";
+import {GenreService} from "../services/genre.service";
 import {Location} from "@angular/common";
-import {MechanicService} from "../mechanic.service";
+import {MechanicService} from "../services/mechanic.service";
 
 @Component({
   selector: 'app-mechanic-detail',

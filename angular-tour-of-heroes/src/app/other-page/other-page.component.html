@@ -1,0 +1,13 @@
+<div class="other-page-header">My Other Page</div>
+<button (click)="goBack();">go back</button>
+
+<div class="some-text"[style.background-color]="getBackGroundColor()">
+  <input placeholder="text" [(ngModel)]="myText">
+  <p>{{myText | uppercase}}</p>
+</div>
+<button (click)="buttonClicked()">Нажать на кнопку для появления текста</button>
+<div *ngIf="showText">
+  Этот текст будет виден, только после нажатия на кнопку
+  <p>Кнопка нажата колво раз:{{timesClicked}}</p>
+  <p>Потребовалось времени: {{timeForOpen}}</p>
+</div>

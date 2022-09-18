@@ -1,0 +1,12 @@
+.some-text{
+  background: #7daddc;
+  height: 700px;
+}
+.other-page-header{
+  top: 27%;
+  left: 50%;
+  font-size: 3rem;
+  transform: translate(-50%, 0px);
+  position: absolute;
+  font-weight: 800;
+}

@@ -15,8 +15,8 @@ export interface Mechanic{
 export interface Game{
   id:string;
   name?:string;
-  genre?:Genre;
-  mechanics?: Mechanic[];
+  genre:Genre;
+  mechanics: Mechanic[];
 }
 export interface LoginModel{
   username:string;

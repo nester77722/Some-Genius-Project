@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from "../auth.service";
-import {TokenService} from "../token.service";
+import {AuthService} from "../services/auth.service";
+import {TokenService} from "../services/token.service";
 import {LoginModel} from "../interfaces";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ loginModel:LoginModel = {
   password: '',
 }
 messages:string[] = [];
-  constructor(private authService:AuthService, private tokenService:TokenService) { }
+  constructor(private authService:AuthService, private tokenService:TokenService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +24,9 @@ messages:string[] = [];
     this.authService.login(this.loginModel)
       .subscribe(response => {
         this.tokenService.saveTokens(response);
+        window.location.reload();
+        this.router.navigate(['/genres']);
+
       },
         err => {
           this.messages.push(err.error.message);

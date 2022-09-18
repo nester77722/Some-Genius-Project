@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Mechanic} from "../interfaces";
-import {MechanicService} from "../mechanic.service";
+import {MechanicService} from "../services/mechanic.service";
 
 @Component({
   selector: 'app-mechanics',

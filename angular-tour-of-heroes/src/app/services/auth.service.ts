@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Config} from "./Config";
+import {Config} from "../Config";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, map, Observable} from "rxjs";
-import {Genre, LoginModel, Tokens} from "./interfaces";
+import {Genre, LoginModel, Tokens} from "../interfaces";
 
 @Injectable({
   providedIn: 'root'

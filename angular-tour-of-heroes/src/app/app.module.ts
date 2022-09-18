@@ -10,6 +10,9 @@ import { MechanicsComponent } from './mechanics/mechanics.component';
 import { RegisterComponent } from './register/register.component';
 import { MechanicDetailComponent } from './mechanic-detail/mechanic-detail.component';
 import { LoginComponent } from './login/login.component';
+import { OtherPageComponent } from './other-page/other-page.component';
+import { GamesComponent } from './games/games.component';
+import { GameDateilsComponent } from './game-dateils/game-dateils.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,10 @@ import { LoginComponent } from './login/login.component';
     MechanicsComponent,
     RegisterComponent,
     MechanicDetailComponent,
-    LoginComponent
+    LoginComponent,
+    OtherPageComponent,
+    GamesComponent,
+    GameDateilsComponent
   ],
   imports: [
     BrowserModule,
