@@ -13,8 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { OtherPageComponent } from './other-page/other-page.component';
 import { GamesComponent } from './games/games.component';
 import { GameDateilsComponent } from './game-dateils/game-dateils.component';
-
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -28,15 +27,13 @@ import { GameDateilsComponent } from './game-dateils/game-dateils.component';
     OtherPageComponent,
     GamesComponent,
     GameDateilsComponent,
-
-
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

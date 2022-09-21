@@ -3,6 +3,7 @@ import {AuthService} from "../services/auth.service";
 import {TokenService} from "../services/token.service";
 import {LoginModel} from "../interfaces";
 import {Router} from "@angular/router";
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -16,7 +17,7 @@ loginModel:LoginModel = {
   password: '',
 }
 messages:string[] = [];
-  constructor(private authService:AuthService, private tokenService:TokenService, private router:Router) { }
+  constructor(private authService:AuthService, private tokenService:TokenService, public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +27,7 @@ messages:string[] = [];
       .subscribe(response => {
         this.tokenService.saveTokens(response);
         window.location.reload();
-        this.router.navigate(['/genres']);
+        this.activeModal.close('Close click')
 
       },
         err => {
