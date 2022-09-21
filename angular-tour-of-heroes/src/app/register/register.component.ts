@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../services/auth.service";
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-register',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
  userName:string = '';
  password:string = '';
  messages:string[] = [];
-  constructor(private authService:AuthService) { }
+  constructor(private authService:AuthService, public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.email, this.userName, this.password).subscribe(
       response => {
         this.messages.push(response.message)
+        window.location.reload()
       },
       err => {
         this.messages.push(err.error.message);

@@ -1,4 +1,4 @@
-<div>
+<!--<div>
   <label>User name: </label>
   <input  [(ngModel)]="userName" placeholder="userName">
 </div>
@@ -10,7 +10,37 @@
   <label >Password: </label>
   <input  [(ngModel)]="password" placeholder="name">
 </div>
-<button type="button" (click)="submit()">Register</button>
+
+<button type="button" class="btn btn-outline-dark" (click)="submit()">Register</button>
+<button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
 <div *ngFor ="let message of messages">
   <p>{{message}}</p>
+</div>-->
+
+
+<div class="modal-header">
+  <h4 class="modal-title">Пожалуйста введите ваши данные:</h4>
+
+</div>
+<div class="modal-body-register" style="display: flex; flex-direction: column; height: 110px; justify-content: space-between; padding: 0 17px">
+  <div class="register-modal" style="display: flex;">
+    <label class="user-name-label" style="flex-basis: 20%; display: flex; align-items: center;">User name: </label>
+    <input  [(ngModel)]="userName" placeholder="userName">
+  </div>
+  <div class="register-modal" style="display: flex;">
+    <label class="user-name-label" style="flex-basis: 20%; display: flex; align-items: center;">Email: </label>
+    <input  [(ngModel)]="email" placeholder="Email">
+  </div>
+  <div class="register-password-modal" style="display: flex;">
+    <label class="password-header-login_modal" style="flex-basis: 20%;display: flex;align-items: center;">Password: </label>
+    <input  [(ngModel)]="password" placeholder="password">
+  </div>
+
+  <div *ngFor ="let message of messages">
+    <p>{{message}}</p>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="submit()">Register</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
 </div>

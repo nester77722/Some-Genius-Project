@@ -1,16 +1,14 @@
 <div class="modal-header">
-  <h4 class="modal-title">Hi there!</h4>
-  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  <h4 class="modal-title">Пожалуйста введите ваши данные:</h4>
+
 </div>
-<div class="modal-body">
-  <p>Hello!</p>
-  <div>
-    <label>User name: </label>
+<div class="modal-body" style="display: flex; flex-direction: column; height: 110px; justify-content: space-between">
+  <div class="login-log-in-modal" style="display: flex;">
+    <label class="user-name-label" style="flex-basis: 20%; display: flex; align-items: center;">User name: </label>
     <input  [(ngModel)]=" loginModel.username" placeholder="userName">
   </div>
-
-  <div>
-    <label >Password: </label>
+  <div class="login-password-modal" style="display: flex;">
+    <label class="password-header-login_modal" style="flex-basis: 20%;display: flex;align-items: center;">Password: </label>
     <input  [(ngModel)]="loginModel.password" placeholder="password">
   </div>
 

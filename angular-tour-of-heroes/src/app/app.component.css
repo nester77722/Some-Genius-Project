@@ -37,7 +37,7 @@ nav a:active {
   height: 50px;
   align-items: center;
   background: purple;
-  margin-top: 20px;
+  margin: 20px 0;
   cursor: pointer;
 }
 .a-other{
@@ -53,7 +53,8 @@ nav a:active {
 .h1-header{
   display: flex;
   align-items: center;
-  border-bottom: 1px solid;
+  flex-basis: 85%;
+  margin-bottom: 0!important;
 }
 .main-name{
   flex-basis: 90%;
@@ -66,8 +67,11 @@ nav a:active {
 .main-routes{
   display: flex;
   width: 50%;
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-around;
 
-  margin: 0 auto;
-  justify-content: space-between;
-
+}
+.header-setting{
+  border-bottom: 1px solid;
 }

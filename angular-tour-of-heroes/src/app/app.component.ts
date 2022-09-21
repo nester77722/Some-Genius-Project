@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {TokenService} from "./services/token.service";
 import { LoginComponent } from './login/login.component';
+import {RegisterComponent} from "./register/register.component";
 
 
 @Component({
@@ -32,7 +33,7 @@ openLoginModal(){
 }
 
 openRegisterModal(){
-  
+  this.modalService.open(RegisterComponent)
 }
 
 }

@@ -1,15 +1,18 @@
 <div class="background-color-main">
   <div class="main-wrapper">
+    <div class="header-setting" style="display: flex">
     <h1 style="margin-bottom: 20px;" class="h1-header"><span class="main-name">{{title}}</span></h1>
 
 
-<nav class="main-nav">
-  <div *ngIf="!isLoggedIn" class="register-nav">
+
+  <div *ngIf="!isLoggedIn" class="register-nav" style="display: flex; flex-basis: 15%; justify-content: center">
     <span class="route-register">
       <button type="button" (click)="openRegisterModal()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
         <button type="button" (click)="openLoginModal()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
       </span>
   </div>
+    </div>
+    <nav class="main-nav">
   <div  *ngIf="isLoggedIn">
     <button (click)="logOut()">LogOut</button>
   </div>
