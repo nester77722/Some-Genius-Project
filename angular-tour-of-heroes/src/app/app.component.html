@@ -3,7 +3,10 @@
     <h1 style="margin-bottom: 20px;" class="h1-header"><span class="main-name">{{title}}</span>
       <span class="route-register">
   <a routerLink="/register" class="a-other">Register</a>
-  <a routerLink="/login" class="a-other">Login</a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <a routerLink="/login" class="a-other">Login</a>
+        </button>
+
         </span>
 </h1>
 
@@ -30,3 +33,6 @@
 </div>
 <router-outlet></router-outlet>
 </div>
+
+
+

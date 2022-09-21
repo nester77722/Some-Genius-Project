@@ -1,10 +1,11 @@
 <ul class="heroes">
   <li *ngFor="let game of games">
     <div>
-      <a routerLink="/gamedetail/{{game.id}}">
+      <a routerLink="/gamedetail/{{game.id}}" >
        <p>Айди:<span class="badge">{{game.id}}</span></p>
        <p>Имя:<span>{{game.name}}</span></p>
       </a>
     </div>
   </li>
 </ul>
+

@@ -11,6 +11,7 @@ import {GamesComponent} from "./games/games.component";
 import {GameDateilsComponent} from "./game-dateils/game-dateils.component";
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/genres', pathMatch: 'full' },
   {path: 'genres', component: GenresComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'other', component: OtherPageComponent},
   {path: 'games', component: GamesComponent},
   {path: 'gamedetail/:id', component: GameDateilsComponent},
+
 ];
 
 @NgModule({

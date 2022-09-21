@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { OtherPageComponent } from './other-page/other-page.component';
 import { GamesComponent } from './games/games.component';
 import { GameDateilsComponent } from './game-dateils/game-dateils.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,10 @@ import { GameDateilsComponent } from './game-dateils/game-dateils.component';
     LoginComponent,
     OtherPageComponent,
     GamesComponent,
-    GameDateilsComponent
+    GameDateilsComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
