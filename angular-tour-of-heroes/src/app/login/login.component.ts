@@ -28,7 +28,7 @@ messages:string[] = [];
       .subscribe(response => {
         this.tokenService.saveTokens(response);
         this.activeModal.close('Close click');
-
+        window.location.reload();
       },
         err => {
           this.messages.push(err.error.message);

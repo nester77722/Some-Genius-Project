@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import {Tokens} from "../interfaces";
+import { from, map, switchMap, catchError } from 'rxjs';
+import { Tokens } from '../interfaces';
 import {AuthService} from "./auth.service";
 const tokensKey:string = 'tokens';
 @Injectable({
@@ -9,6 +10,8 @@ const tokensKey:string = 'tokens';
 export class TokenService {
   private jwtHelper: JwtHelperService = new JwtHelperService();
   private isRefreshing:boolean = false;
+  private refreshPromise: Promise<void|Tokens|undefined> | null = null;
+
 
   constructor(private authService: AuthService) { }
   saveTokens(tokens:Tokens){
@@ -27,7 +30,7 @@ export class TokenService {
     window.localStorage.removeItem(tokensKey);
   }
 
-  isLoggedIn():boolean{
+ async isLoggedIn():Promise<boolean>{
     let json = window.localStorage.getItem(tokensKey);
 
     if (json){
@@ -39,27 +42,45 @@ export class TokenService {
 
           if(!isExpired){
             return true;
-          }
-          if(this.isRefreshing){
-            return true;
-          }
-
+          }         
+          
+          if(!this.isRefreshing){
             this.isRefreshing = true;
-            let refreshSuccessful = false
-            this.authService.refresh(tokens).subscribe(response => {
-              this.saveTokens(response);
-              refreshSuccessful = true;
-            },error => {
-              this.deleteTokens()
-              refreshSuccessful = false;
-            })
-          this.isRefreshing = false;
-            if(refreshSuccessful){
+            
+            this.refreshPromise = this.authService.refresh(tokens).toPromise().catch(err => {
+              console.log(err);
+              this.deleteTokens();
+            });
+            
+            let newTokens = await this.refreshPromise; 
+            this.isRefreshing = false;
+
+            if (newTokens){
+              this.saveTokens(newTokens);
+
               return true;
             }
+            else{
+              this.deleteTokens();
 
+              return false;
+            }
+          }
 
+          if (this.isRefreshing){
+            if (this.refreshPromise){
+              return this.refreshPromise.then(response => {
+                if(response){
+                  return true;
+                }
 
+                return false;
+              }).catch(() =>{
+                return false;
+              });
+            }
+          }
+            
         }
       }
 

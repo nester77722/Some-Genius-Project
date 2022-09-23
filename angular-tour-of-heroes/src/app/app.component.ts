@@ -13,13 +13,17 @@ import {RegisterComponent} from "./register/register.component";
 })
 export class AppComponent implements OnInit{
   title = 'Tour of Heroes';
-
-  constructor(public tokenService:TokenService, private modalService: NgbModal) {
+  isLoggedIn: boolean = false;
+  constructor(private tokenService:TokenService, private modalService: NgbModal) {
   }
 ngOnInit(){
+  this.tokenService.isLoggedIn().then(result => {
+    this.isLoggedIn = result
+  });
 }
 logOut(){
     this.tokenService.deleteTokens();
+    window.location.reload();
 }
 
 openLoginModal(){
