@@ -4,6 +4,11 @@
   list-style-type: none;
   padding: 0;
   background: gray;
+  height: 500px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .heroes li {
   position: relative;
@@ -51,7 +56,7 @@
   text-align: right;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
-  width: 230px;
+  width: 255px;
 }
 .background-color-main{
   background: #cbf5cb;

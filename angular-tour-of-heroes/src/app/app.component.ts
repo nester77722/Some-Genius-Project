@@ -12,7 +12,7 @@ import {RegisterComponent} from "./register/register.component";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'Tour of Heroes';
+  title = 'Какое-то название сайта ';
   isLoggedIn: boolean = false;
   constructor(private tokenService:TokenService, private modalService: NgbModal) {
   }

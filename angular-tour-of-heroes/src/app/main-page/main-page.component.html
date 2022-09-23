@@ -1,15 +1,26 @@
-<div *ngIf="user">
-  <h1>Hello, {{user.name}}</h1>
-</div>
-<nav class="main-nav" *ngIf="isLoggedIn">
+<section class="main-page">
+<section class="pageLogOut">Это то, что пользователь видет не залогинившись</section>
+<section *ngIf="isLoggedIn" class="pageLogIn">
 
   <div>
-    <div class="main-routes">
-      <a routerLink="/genres" class="main-url">Genres</a>
-      <a routerLink="/mechanics" class="main-url">Mechanics</a>
-      <a routerLink="/games" class="main-url">Games</a>
-    </div>
-  </div>
-</nav>
-<section class="pageLogOut">Это то, что пользователь видет не залогинившись</section>
+    <div>
+      <div class="position-toggle">
+        <div ngbDropdown class="d-inline-block">
+          <div class="btn-toggle-dropdown">
+            <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+          </div>
 
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-styles_games">
+            <a routerLink="/genres" class="main-url">Genres</a>
+            <a routerLink="/mechanics" class="main-url">Mechanics</a>
+            <a routerLink="/games" class="main-url">Games</a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</section>
+</section>

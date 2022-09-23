@@ -37,7 +37,8 @@ import { MainPageComponent } from './main-page/main-page.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

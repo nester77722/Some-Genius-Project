@@ -29,6 +29,7 @@ nav a:active {
 
 .background-color-main{
   background: #f8c5f8;
+  position: relative;
 }
 .other-page-btn{
   width: 7%;
@@ -75,3 +76,18 @@ nav a:active {
 .header-setting{
   border-bottom: 1px solid;
 }
+.home-btn{
+  margin: 0;
+  padding: 0;
+  width: 75px;
+  height: 36px;
+}
+.position-logOut{
+  display: flex;
+  flex-basis: 13%;
+  justify-content: end;
+}
+.position-logOut_height{
+  align-self: center;
+}
+
