@@ -59,6 +59,40 @@ namespace BoardGames.API.Controllers
             });
         }
 
+        [HttpPost, Route("refresh")]
+        public async Task<IActionResult> RefreshTokens([FromBody] TokensDto tokensDto)
+        {
+            if (tokensDto is null)
+            {
+                return BadRequest("Invalid client request");
+            }
+
+            string accessToken = tokensDto.AccessToken;
+            string refreshToken = tokensDto.RefreshToken;
+
+            var principal = _tokenService.GetPrincipalFromExpiredToken(accessToken);
+            var username = principal.Identity.Name;
+
+            var user = await _userManager.FindByNameAsync(username);
+
+            if (user == null || user.RefreshToken != refreshToken || user.RefreshTokenExpiryTime <= DateTime.UtcNow)
+            {
+                throw new ServiceException("Invalid tokens", "AuthService");
+            }
+
+            var newAccessToken = _tokenService.GenerateAccessToken(principal.Claims);
+            var newRefreshToken = _tokenService.GenerateRefreshToken();
+
+            user.RefreshToken = newRefreshToken;
+            await _userManager.UpdateAsync(user);
+
+            return Ok(new
+            {
+                accessToken = newAccessToken,
+                refreshToken = newRefreshToken
+            });
+        }
+
         [HttpPost, Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel registerModel)
         {
