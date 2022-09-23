@@ -1,6 +1,6 @@
 
-<nav class="main-nav" *ngIf="!isLoggedIn">
-  <div class="wtf">
+<nav class="main-nav" *ngIf="tokenService.isLoggedIn()">
+  <div>
     <div class="main-routes">
       <a routerLink="/genres" class="main-url">Genres</a>
       <a routerLink="/mechanics" class="main-url">Mechanics</a>

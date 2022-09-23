@@ -27,8 +27,7 @@ messages:string[] = [];
     this.authService.login(this.loginModel)
       .subscribe(response => {
         this.tokenService.saveTokens(response);
-        window.location.reload();
-        this.activeModal.close('Close click')
+        this.activeModal.close('Close click');
 
       },
         err => {
