@@ -30,5 +30,9 @@ export class AuthService {
       password:loginModel.password,
     },this.httpOptionsJson);
   }
+  refresh(tokens:Tokens):Observable<Tokens>{
+    const url = this.apiUrl + '/' + this.authUrl + '/refresh';
+    return this.httpClient.post<Tokens>(url, tokens, this.httpOptionsJson)
+  }
 
 }

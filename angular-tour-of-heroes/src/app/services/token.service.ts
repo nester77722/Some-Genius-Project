@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import {Tokens} from "../interfaces";
+import {AuthService} from "./auth.service";
 const tokensKey:string = 'tokens';
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
   private jwtHelper: JwtHelperService = new JwtHelperService();
+  private isRefreshing:boolean = false;
 
-
-  constructor() { }
+  constructor(private authService: AuthService) { }
   saveTokens(tokens:Tokens){
     window.localStorage.removeItem(tokensKey);
     window.localStorage.setItem(tokensKey, JSON.stringify(tokens));
@@ -35,6 +36,30 @@ export class TokenService {
       if (tokens){
         if (tokens.accessToken){
           let isExpired = this.jwtHelper.isTokenExpired(tokens.accessToken);
+
+          if(!isExpired){
+            return true;
+          }
+          if(this.isRefreshing){
+            return true;
+          }
+
+            this.isRefreshing = true;
+            let refreshSuccessful = false
+            this.authService.refresh(tokens).subscribe(response => {
+              this.saveTokens(response);
+              refreshSuccessful = true;
+            },error => {
+              this.deleteTokens()
+              refreshSuccessful = false;
+            })
+          this.isRefreshing = false;
+            if(refreshSuccessful){
+              return true;
+            }
+
+
+
         }
       }
 
