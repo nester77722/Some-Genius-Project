@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Location} from "@angular/common";
+import { Location } from "@angular/common";
 import { TokenService } from '../services/token.service';
+import { User } from '../interfaces';
 
 
 
@@ -11,15 +12,15 @@ import { TokenService } from '../services/token.service';
 })
 export class MainPageComponent implements OnInit {
   isLoggedIn: boolean = false;
+  user: User | null = null;
+  constructor(private location: Location, private tokenService: TokenService) { }
 
-  constructor(private location:Location, private tokenService:TokenService) { }
-
-  ngOnInit(){
+  ngOnInit() {
     this.tokenService.isLoggedIn().then(result => {
       this.isLoggedIn = result
     });
   }
-  logOut(){
+  logOut() {
     this.tokenService.deleteTokens();
   }
 
