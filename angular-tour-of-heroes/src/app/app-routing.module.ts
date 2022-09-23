@@ -9,11 +9,13 @@ import {LoginComponent} from "./login/login.component";
 import {OtherPageComponent} from "./other-page/other-page.component";
 import {GamesComponent} from "./games/games.component";
 import {GameDateilsComponent} from "./game-dateils/game-dateils.component";
+import {MainPageComponent} from "./main-page/main-page.component";
+
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/genres', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {path: 'genres', component: GenresComponent},
   {path: 'genredetail/:id', component:GenresDetailComponent},
   {path: 'mechanics', component: MechanicsComponent},
@@ -23,6 +25,8 @@ const routes: Routes = [
   {path: 'other', component: OtherPageComponent},
   {path: 'games', component: GamesComponent},
   {path: 'gamedetail/:id', component: GameDateilsComponent},
+  {path: 'home', component: MainPageComponent},
+
 
 ];
 

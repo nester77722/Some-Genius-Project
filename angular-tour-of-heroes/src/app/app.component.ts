@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import {RegisterComponent} from "./register/register.component";
 
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +14,7 @@ import {RegisterComponent} from "./register/register.component";
 export class AppComponent implements OnInit{
   title = 'Tour of Heroes';
   isLoggedIn:boolean = false;
+
   constructor(private tokenService:TokenService, private modalService: NgbModal) {
   }
 ngOnInit(){
@@ -35,6 +37,7 @@ openLoginModal(){
 openRegisterModal(){
   this.modalService.open(RegisterComponent)
 }
+
 
 }
 

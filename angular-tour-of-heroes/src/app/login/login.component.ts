@@ -6,6 +6,7 @@ import {Router} from "@angular/router";
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,4 +38,5 @@ messages:string[] = [];
           }
         })
   }
+
 }

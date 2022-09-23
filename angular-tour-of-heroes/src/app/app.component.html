@@ -12,23 +12,17 @@
       </span>
   </div>
     </div>
-    <nav class="main-nav">
+
   <div  *ngIf="isLoggedIn">
     <button (click)="logOut()">LogOut</button>
   </div>
-<div class="main-routes">
-  <a routerLink="/genres">Genres</a>
-  <a routerLink="/mechanics">Mechanics</a>
-  <a routerLink="/games">Games</a>
-</div>
-</nav>
-  </div>
-<div>
-  <div class="other-page-btn" routerLink="/other">
-    <a  class="a-other">OtherPage</a>
   </div>
 
-</div>
+
+
+  <div>
+    <div *ngIf="isLoggedIn"><a  routerLink="/home">Home</a></div>
+  </div>
 <router-outlet></router-outlet>
 </div>
 

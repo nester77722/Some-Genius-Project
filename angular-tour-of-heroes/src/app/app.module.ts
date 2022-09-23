@@ -14,6 +14,8 @@ import { OtherPageComponent } from './other-page/other-page.component';
 import { GamesComponent } from './games/games.component';
 import { GameDateilsComponent } from './game-dateils/game-dateils.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MainPageComponent } from './main-page/main-page.component';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     OtherPageComponent,
     GamesComponent,
     GameDateilsComponent,
+    MainPageComponent,
+
   ],
   imports: [
     BrowserModule,
