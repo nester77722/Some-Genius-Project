@@ -45,8 +45,10 @@ public static class MauiProgram
 		builder.Services.AddSingleton<IGenreService, GenreService>();
 		builder.Services.AddTransient<GenresListPage>();
 		builder.Services.AddTransient<GenrePage>();
-		builder.Services.AddTransient<GenresListViewModel>();
+		builder.Services.AddTransient<MainPageViewModel>();
+        builder.Services.AddTransient<GenresListViewModel>();
 		builder.Services.AddTransient<GenreViewModel>();
+		builder.Services.AddTransient<MainPage>();
 
 
 		builder.ConfigureSerilog();

@@ -4,7 +4,7 @@
              xmlns:viewmodels="clr-namespace:BoardGames.MAUIClient.ViewModels"
              x:Class="BoardGames.MAUIClient.Views.GenresListPage"
              Title="GenresListPage">
-    <Grid RowDefinitions="100, Auto, *"
+    <Grid RowDefinitions="Auto, Auto, *"
           ColumnDefinitions=".75*, .25*"
           Padding="10"
           RowSpacing="10"
@@ -14,42 +14,48 @@
                 Grid.Row="0"
                 Grid.ColumnSpan="2"
                 Command="{Binding CreateGenreCommand}"/>
-        <Button Text="Загрузить"
+        <Button Text="На главную"
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
-                Command="{Binding GetGenresCommand}"/>
-
-        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+                Command="{Binding NavigateToMainCommand}"/>
+        <RefreshView Command="{Binding GetGenresCommand}"
+                     IsRefreshing="{Binding IsLoadingGenres}"
+                     Grid.Row="2"
+                     Grid.ColumnSpan="2">
+            <CollectionView 
                         ItemsSource="{Binding Genres}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem Text="Удалить"
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Удалить"
                                            BackgroundColor="Red"
                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=DeleteGenreCommand}"
                                            CommandParameter="{Binding .}"
                                            />
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <Grid Padding="0,5">
-                            <Frame>
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=NavigateToGenreCommand}"
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Grid Padding="0,5">
+                                <Frame>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=NavigateToGenreCommand}"
                                                           CommandParameter="{Binding .}">
-                                        
-                                    </TapGestureRecognizer>
-                                </Frame.GestureRecognizers>
-                                <Label Text="{Binding Name}"
+
+                                        </TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{Binding Name}"
                                         FontSize="24"/>
-                            </Frame>
-                        </Grid>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            
-        </CollectionView>
+                                </Frame>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </RefreshView>
+       
 
     </Grid>
 

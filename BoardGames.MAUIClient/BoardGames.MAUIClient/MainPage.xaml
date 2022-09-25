@@ -4,8 +4,9 @@
              x:Class="BoardGames.MAUIClient.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout>
-
+        <VerticalStackLayout Padding="10">
+            <Button Text="Genres"
+                    Command="{Binding NavigateToGenresCommand}"></Button>
         </VerticalStackLayout>
     </ScrollView>
 

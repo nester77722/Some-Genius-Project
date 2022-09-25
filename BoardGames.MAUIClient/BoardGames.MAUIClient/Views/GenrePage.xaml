@@ -5,79 +5,82 @@
 
              x:Class="BoardGames.MAUIClient.Views.GenrePage"
              Title="GenrePage">
-    <Grid RowDefinitions="85, Auto, 300, Auto, Auto"
+    <ScrollView>
+        <Grid RowDefinitions="Auto, Auto, 300, Auto, Auto"
           ColumnDefinitions=".50*, .50*"
           Padding="10"
           RowSpacing="10"
           ColumnSpacing="10">
-        <Grid Grid.Row="0"
+            <Grid Grid.Row="0"
               Grid.Column="0"
               Grid.ColumnSpan="2"
               
-              RowDefinitions=".35*, .65*"
-              ColumnSpacing="5">
-            <Label Text="Name"
+              RowDefinitions="Auto, Auto"
+              ColumnSpacing="5"
+              Padding="10">
+                <Label Text="Name"
                 Grid.Row="0"
                 Grid.Column="0"
-                Padding="10"
                 />
-            <Entry Text="{Binding Genre.Name}"
+                <Entry Text="{Binding Genre.Name}"
                Grid.Row="1"
                Grid.Column="0"
                FontSize="Medium" />
-        </Grid>
-        <Label Grid.Row="1"
+            </Grid>
+            <Label Grid.Row="1"
                Grid.Column="1"
                Text="Games" 
                IsVisible="{Binding HasGames}"/>
-        <CollectionView Grid.Row="2" Grid.Column="1"
+            <CollectionView Grid.Row="2" Grid.Column="1"
                         ItemsSource="{Binding Genre.Games}"
                         IsVisible="{Binding HasGames}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <Grid Padding="0,5">
-                            <Frame>
-                                <Frame.GestureRecognizers>
-                                    <!--<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=NavigateToGenreCommand}"
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <Grid Padding="0,5">
+                                <Frame>
+                                    <Frame.GestureRecognizers>
+                                        <!--<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=NavigateToGenreCommand}"
                                                           CommandParameter="{Binding .}">
 
                                     </TapGestureRecognizer>-->
-                                </Frame.GestureRecognizers>
-                                <Label Text="{Binding Name}"
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{Binding Name}"
                                         FontSize="24"/>
-                            </Frame>
-                        </Grid>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+                                </Frame>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
 
-        </CollectionView>
-        <Grid Grid.Row="3"
+            </CollectionView>
+            <Grid Grid.Row="3"
               Grid.ColumnSpan="2"
-              RowDefinitions="35"
+              RowDefinitions="Auto"
               ColumnDefinitions=".33*, .33*, .33*"
               Padding="10"
               ColumnSpacing="10">
-            <Button Text="Сохранить"
+                <Button Text="Сохранить"
                 Grid.Row="0"
                 Grid.Column="0"
                 Command="{Binding SaveGenreCommand}"/>
-            <Button Text="Удалить"
+                <Button Text="Удалить"
                 Grid.Row="0"
                 Grid.Column="1"
                 Command="{Binding DeleteGenreCommand}"/>
-            <Button Text="Назад"
+                <Button Text="Назад"
                 Grid.Row="0"
                 Grid.Column="2"
                 Command="{Binding BackCommand}" />
-        </Grid>
-        
-        <Grid  Grid.Row="4"
+            </Grid>
+
+            <Grid  Grid.Row="4"
                Grid.ColumnSpan="2"
                IsVisible="{Binding HasErrors}"
                Padding="10">
-            <Label Text="{Binding Errors}"/>
+                <Label Text="{Binding Errors}"/>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollView>
+    
 </ContentPage>
