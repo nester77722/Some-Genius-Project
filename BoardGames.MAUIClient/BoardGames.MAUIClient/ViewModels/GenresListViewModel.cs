@@ -31,7 +31,7 @@ namespace BoardGames.MAUIClient.ViewModels
             await Shell.Current.GoToAsync($"{nameof(GenrePage)}",
                 parameters: new Dictionary<string, object>
                 {
-                    {"Genre", genre}
+                    {"GenreId", genre.Id}
                 });
         }
 

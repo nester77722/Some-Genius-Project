@@ -5,16 +5,79 @@
 
              x:Class="BoardGames.MAUIClient.Views.GenrePage"
              Title="GenrePage">
-    <StackLayout>
-        <StackLayout BindingContext="{Binding Genre}">
-            <Label Text="Имя" />
-            <Entry Text="{Binding Name}" FontSize="Medium" />
-        </StackLayout>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-            <Button Text="Сохранить" Command="{Binding SaveGenreCommand}"
-                                     IsEnabled="{Binding IsValid}"/>
-            <Button Text="Удалить" Command="{Binding DeleteGenreCommand}"/>
-            <Button Text="Назад" Command="{Binding BackCommand}" />
-        </StackLayout>
-    </StackLayout>
+    <Grid RowDefinitions="85, Auto, 300, Auto, Auto"
+          ColumnDefinitions=".50*, .50*"
+          Padding="10"
+          RowSpacing="10"
+          ColumnSpacing="10">
+        <Grid Grid.Row="0"
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              
+              RowDefinitions=".35*, .65*"
+              ColumnSpacing="5">
+            <Label Text="Name"
+                Grid.Row="0"
+                Grid.Column="0"
+                Padding="10"
+                />
+            <Entry Text="{Binding Genre.Name}"
+               Grid.Row="1"
+               Grid.Column="0"
+               FontSize="Medium" />
+        </Grid>
+        <Label Grid.Row="1"
+               Grid.Column="1"
+               Text="Games" 
+               IsVisible="{Binding HasGames}"/>
+        <CollectionView Grid.Row="2" Grid.Column="1"
+                        ItemsSource="{Binding Genre.Games}"
+                        IsVisible="{Binding HasGames}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Frame.GestureRecognizers>
+                                    <!--<TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=NavigateToGenreCommand}"
+                                                          CommandParameter="{Binding .}">
+
+                                    </TapGestureRecognizer>-->
+                                </Frame.GestureRecognizers>
+                                <Label Text="{Binding Name}"
+                                        FontSize="24"/>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+        <Grid Grid.Row="3"
+              Grid.ColumnSpan="2"
+              RowDefinitions="35"
+              ColumnDefinitions=".33*, .33*, .33*"
+              Padding="10"
+              ColumnSpacing="10">
+            <Button Text="Сохранить"
+                Grid.Row="0"
+                Grid.Column="0"
+                Command="{Binding SaveGenreCommand}"/>
+            <Button Text="Удалить"
+                Grid.Row="0"
+                Grid.Column="1"
+                Command="{Binding DeleteGenreCommand}"/>
+            <Button Text="Назад"
+                Grid.Row="0"
+                Grid.Column="2"
+                Command="{Binding BackCommand}" />
+        </Grid>
+        
+        <Grid  Grid.Row="4"
+               Grid.ColumnSpan="2"
+               IsVisible="{Binding HasErrors}"
+               Padding="10">
+            <Label Text="{Binding Errors}"/>
+        </Grid>
+    </Grid>
 </ContentPage>

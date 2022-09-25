@@ -7,6 +7,7 @@ using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BoardGames.MAUIClient.ViewModels
 {
@@ -14,28 +15,44 @@ namespace BoardGames.MAUIClient.ViewModels
     public partial class GenreViewModel : ObservableObject, IQueryAttributable
     {
         private readonly IGenreService _genreService;
+        [ObservableProperty]
+        private string _errors;
 
         [ObservableProperty]
         private GenreModel _genre;
 
         [ObservableProperty]
-        private bool _isValid;
+        private bool _hasErrors;
+
+        [ObservableProperty]
+        private bool _hasGames;
 
         public GenreViewModel(IGenreService genreService)
         {
-
             _genreService = genreService;
         }
 
         public GenreViewModel(GenreModel genre)
         {
             _genre = genre;
+
+            HasGames = _genre.Games.Any();
         }
 
-        public void ApplyQueryAttributes(IDictionary<string, object> query)
+        public async void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            Genre = query["Genre"] as GenreModel;
-            Genre.PropertyChanged += CheckName;
+            var id = query["GenreId"] as string;
+
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                Genre = await _genreService.GetGenre(id);
+            }
+            else
+            {
+                Genre = new GenreModel();
+            }
+
+            HasGames = _genre.Games.Any();
         }
 
         [RelayCommand]
@@ -57,26 +74,21 @@ namespace BoardGames.MAUIClient.ViewModels
         [RelayCommand]
         private async Task SaveGenre()
         {
-            if (string.IsNullOrWhiteSpace(_genre.Id))
+            if (_genre.HasErrors)
             {
-                await _genreService.CreateGenre(_genre);
+                HasErrors = true;
+                Errors = string.Join("", _genre.GetErrors().Select(e => e.ErrorMessage));
             }
-
-
-            await Back();
-        }
-
-        private void CheckName(object sender, PropertyChangedEventArgs e)
-        {
-            if (e.PropertyName == nameof(Genre.Name))
+            else
             {
-                IsValid = IsValidName();
-            }
-        }
+                if (string.IsNullOrWhiteSpace(_genre.Id))
+                {
+                    await _genreService.CreateGenre(_genre);
+                }
 
-        private bool IsValidName()
-        {
-            return !string.IsNullOrWhiteSpace(Genre.Name) && Genre.Name.Length > 3;
+
+                await Back();
+            }
         }
     }
 }

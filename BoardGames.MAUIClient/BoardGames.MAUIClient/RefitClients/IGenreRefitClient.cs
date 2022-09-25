@@ -15,6 +15,9 @@ namespace BoardGames.MAUIClient.RefitClients
         [QueryUriFormat(UriFormat.Unescaped)]
         Task<IEnumerable<GenreModel>> GetGenres();
 
+        [Get("/Genre/{id}")]
+        Task<GenreModel> GetGenre(string id);
+
         [Post("/Genre")]
         Task CreateGenre(GenreModel genre);
 

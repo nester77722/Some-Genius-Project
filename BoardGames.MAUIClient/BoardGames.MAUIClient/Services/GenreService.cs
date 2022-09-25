@@ -30,6 +30,13 @@ namespace BoardGames.MAUIClient.Services
             await _genreClient.DeleteGenre(genre.Id);
         }
 
+        public async Task<GenreModel> GetGenre(string id)
+        {
+            var genre = await _genreClient.GetGenre(id);
+
+            return genre;
+        }
+
         public async Task<IEnumerable<GenreModel>> GetGenres()
         {
             var genres = await _genreClient.GetGenres();
