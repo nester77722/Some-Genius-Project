@@ -23,5 +23,7 @@ export class MainPageComponent implements OnInit {
   logOut() {
     this.tokenService.deleteTokens();
   }
-
+  goBack() : void{
+    this.location.back()
+  }
 }

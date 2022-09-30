@@ -2,6 +2,44 @@
   height: 300px;
 }
 .main-url{
-  font-size: 40px;
+  font-size: 20px;
   color: green;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.position-toggle{
+  position: absolute;
+  top: 65px;
+}
+
+
+.show{
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.section-logIn{
+  height: 300px;
+  background: #e752a2;
+}
+.style-text{
+  font-weight: 800;
+}
+.style-links{
+  background: #a4a4f1;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 7px;
+}
+.style-links:hover{
+  background: white;
+
+}
+.main-url:hover{
+  color:black
 }

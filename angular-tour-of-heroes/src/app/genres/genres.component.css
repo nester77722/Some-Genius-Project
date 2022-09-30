@@ -1,18 +1,26 @@
 /* HeroesComponent's private CSS styles */
 .heroes {
-
+  position: relative;
   list-style-type: none;
   padding: 0;
-  background: gray;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .heroes li {
   position: relative;
   cursor: pointer;
+  background: #2c3a41;
+  width: 100%;
+}
+.setting-hover_genre{
+  width: 98%;
+}
+.setting-hover_genre:hover{
+  width: 100%;
 }
 
-.heroes li:hover {
-  left: .1em;
-}
 
 .heroes a {
   color: #333;
@@ -23,7 +31,7 @@
   height: 1.6em;
   border-radius: 4px;
   display: block;
-  width: 22%;
+  width: 95%;
 }
 
 .heroes a:hover {
@@ -51,8 +59,30 @@
   text-align: right;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
-  width: 230px;
+  width: 255px;
 }
 .background-color-main{
   background: #cbf5cb;
+}
+.genre-style{
+  display: flex;
+  width: 500px;
+  flex-direction: column;
+  overflow-y: scroll;
+  border-top: 10px solid#9e1ee0;
+  border-bottom: 10px solid #9e1ee0;
+}
+*::-webkit-scrollbar{
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb{
+  background-color:  #9e1ee0;
+  border-radius: 20px;
+  border: 3px solid #e523ca;
+}
+*::-webkit-scrollbar-track {
+  background: #9e1ee0;
+}
+ul{
+  margin: 0;
 }

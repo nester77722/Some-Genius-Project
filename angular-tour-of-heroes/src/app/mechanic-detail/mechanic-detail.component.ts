@@ -31,8 +31,8 @@ export class MechanicDetailComponent implements OnInit {
     }
 
   }
-  goBack(): void {
+ /* goBack(): void {
     this.location.back();
-  }
+  }*/
 
 }

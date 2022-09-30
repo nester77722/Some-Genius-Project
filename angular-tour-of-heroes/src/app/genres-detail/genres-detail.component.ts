@@ -29,8 +29,6 @@ export class GenresDetailComponent implements OnInit {
     }
 
   }
-  goBack(): void {
-    this.location.back();
-  }
+
 
 }
