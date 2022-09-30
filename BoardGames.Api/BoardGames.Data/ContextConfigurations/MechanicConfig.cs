@@ -11,6 +11,8 @@ namespace BoardGames.Data.ContextConfigurations
             builder.HasKey(m => m.Id);
 
             builder.HasMany(m => m.Games).WithMany(g => g.Mechanics);
+
+            //builder.HasOne(m => m.Image).WithOne().OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

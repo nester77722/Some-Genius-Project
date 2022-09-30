@@ -17,7 +17,7 @@ namespace BoardGames.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateGenreDto genreDto)
+        public async Task<IActionResult> Create([FromForm] CreateGenreDto genreDto)
         {
             var result = await _genreService.CreateAsync(genreDto);
 

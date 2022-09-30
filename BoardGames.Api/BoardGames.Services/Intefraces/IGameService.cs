@@ -4,7 +4,7 @@ namespace BoardGames.Services.Intefraces
 {
     public interface IGameService
     {
-        public Task<List<GetGameWithoutDetails>> GetAllAsync();
+        public Task<List<GetGameWithoutDetailsDto>> GetAllAsync();
         public Task<GetGameDto> GetAsync(string id);
         public Task<GetGameDto> CreateAsync(CreateGameDto gameDto);
         public Task<GetGameDto> UpdateAsync(GetGameDto gameDto);

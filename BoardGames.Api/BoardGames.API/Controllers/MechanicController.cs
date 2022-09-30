@@ -17,7 +17,7 @@ namespace BoardGames.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateMechanicDto mechanicDto)
+        public async Task<IActionResult> Create([FromForm] CreateMechanicDto mechanicDto)
         {
             var result = await _mechanicService.CreateAsync(mechanicDto);
 

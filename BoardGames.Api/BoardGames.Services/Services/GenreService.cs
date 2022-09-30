@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BoardGames.Data.Entities;
 using BoardGames.Data.Repository;
+using BoardGames.Services.Helpers;
 using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
 using BoardGames.Shared.Exceptions.GenreServiceExceptions;
@@ -34,6 +35,22 @@ namespace BoardGames.Services.Services
             }
 
             genre.Id = Guid.NewGuid();
+
+            if (genre.Image.ImageData is not null)
+            {
+                genre.Image.ThumbnailData = ImageHelper.CreateThumbnail(genre.Image.ImageData);
+            }
+            else
+            {
+                var imageByte = await ImageHelper.DefaultImage();
+                var image = new Image
+                {
+                    ImageData = imageByte,
+                    ThumbnailData = ImageHelper.CreateThumbnail(imageByte)
+                };
+
+                genre.Image = image;
+            }
 
             await _repository.CreateAsync(genre);
 
@@ -76,6 +93,7 @@ namespace BoardGames.Services.Services
         public async Task<List<GetGenreWithoutGamesDto>> GetAllWithoutGamesAsync()
         {
             var genres = await _repository.GetAllAsNoTracking()
+                                          .Include(g => g.Image)
                                           .ToListAsync();
 
             var result = _mapper.Map<List<GetGenreWithoutGamesDto>>(genres);
@@ -98,7 +116,8 @@ namespace BoardGames.Services.Services
             }
 
             var genre = await _repository.GetAsync(genreId,
-                                                      include => include.Games);
+                                                      include => include.Games,
+                                                      include => include.Image);
 
             if (genre is null)
             {

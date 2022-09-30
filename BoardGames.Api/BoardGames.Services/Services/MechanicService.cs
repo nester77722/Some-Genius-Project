@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BoardGames.Data.Entities;
 using BoardGames.Data.Repository;
+using BoardGames.Services.Helpers;
 using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
 using BoardGames.Shared.Exceptions.MechanicServiceExceptions;
@@ -34,6 +35,22 @@ namespace BoardGames.Services.Services
             }
 
             mechanic.Id = Guid.NewGuid();
+
+            if (mechanic.Image.ImageData is not null)
+            {
+                mechanic.Image.ThumbnailData = ImageHelper.CreateThumbnail(mechanic.Image.ImageData);
+            }
+            else
+            {
+                var imageByte = await ImageHelper.DefaultImage();
+                var image = new Image
+                {
+                    ImageData = imageByte,
+                    ThumbnailData = ImageHelper.CreateThumbnail(imageByte)
+                };
+
+                mechanic.Image = image;
+            }
 
             await _repository.CreateAsync(mechanic);
 

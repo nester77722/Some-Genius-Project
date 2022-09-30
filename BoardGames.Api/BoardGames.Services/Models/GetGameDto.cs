@@ -6,5 +6,8 @@
         public string Name { get; set; }
         public GetGenreWithoutGamesDto Genre { get; set; }
         public IEnumerable<GetMechanicWithoutGamesDto> Mechanics { get; set; }
+        public byte[]? Image { get; set; }
+        public byte[]? Thumbnail { get; set; }
+
     }
 }

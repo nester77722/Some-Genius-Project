@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BoardGames.Data.Entities;
 using BoardGames.Data.Repository;
+using BoardGames.Services.Helpers;
 using BoardGames.Services.Intefraces;
 using BoardGames.Services.Models;
 using BoardGames.Shared.Exceptions.GameServiceExceptions;
@@ -68,6 +69,22 @@ namespace BoardGames.Services.Services
 
             game.Mechanics = dbMechanics.Where(x => gameMechanicIds.Contains(x.Id)).ToList();
 
+            if (game.Image.ImageData is not null)
+            {
+                game.Image.ThumbnailData = ImageHelper.CreateThumbnail(game.Image.ImageData);
+            }
+            else
+            {
+                var imageByte = await ImageHelper.DefaultImage();
+                var image = new Image
+                {
+                    ImageData = imageByte,
+                    ThumbnailData = ImageHelper.CreateThumbnail(imageByte)
+                };
+
+                game.Image = image;
+            }
+
             await _gameRepository.CreateAsync(game);
 
             var result = _mapper.Map<GetGameDto>(game);
@@ -80,7 +97,7 @@ namespace BoardGames.Services.Services
             throw new NotImplementedException();
         }
 
-        public async Task<List<GetGameWithoutDetails>> GetAllAsync()
+        public async Task<List<GetGameWithoutDetailsDto>> GetAllAsync()
         {
             var games = await _gameRepository.GetAllAsNoTracking()
                                              .Include(g => g.Genre)
@@ -88,7 +105,7 @@ namespace BoardGames.Services.Services
                                              .AsSplitQuery()
                                              .ToListAsync();
 
-            var result = _mapper.Map<List<GetGameWithoutDetails>>(games);
+            var result = _mapper.Map<List<GetGameWithoutDetailsDto>>(games);
 
             return result;
         }

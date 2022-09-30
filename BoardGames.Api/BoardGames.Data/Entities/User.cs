@@ -6,5 +6,7 @@ namespace BoardGames.Data.Entities
     {
         public string RefreshToken { get; set; }
         public DateTime? RefreshTokenExpiryTime { get; set; }
+        public Image? Image { get; set; }
+        public Guid? ImageId { get; set; }
     }
 }

@@ -9,6 +9,8 @@ namespace BoardGames.Data.ContextConfigurations
         public void Configure(EntityTypeBuilder<Genre> builder)
         {
             builder.HasKey(g => g.Id);
+            //builder.HasOne(g => g.Image).WithOne()
+            //       .HasForeignKey<Genre>(g => g.ImageId).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

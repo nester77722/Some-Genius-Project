@@ -19,6 +19,7 @@ namespace BoardGames.Data
             modelBuilder.ApplyConfiguration(new GenreConfig());
             modelBuilder.ApplyConfiguration(new MechanicConfig());
             modelBuilder.ApplyConfiguration(new GameConfig());
+            modelBuilder.ApplyConfiguration(new ImageConfig());
 
             base.OnModelCreating(modelBuilder);
         }
@@ -26,5 +27,6 @@ namespace BoardGames.Data
         public DbSet<Game> Games { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Mechanic> Mechanics { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 }

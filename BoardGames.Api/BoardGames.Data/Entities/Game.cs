@@ -6,5 +6,7 @@
         public string Name { get; set; }
         public Genre Genre { get; set; }
         public List<Mechanic>? Mechanics { get; set; }
+        public Image? Image { get; set; }
+        public Guid? ImageId { get; set; }
     }
 }

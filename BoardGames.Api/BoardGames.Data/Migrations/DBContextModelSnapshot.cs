@@ -31,6 +31,9 @@ namespace BoardGames.Data.Migrations
                     b.Property<Guid>("GenreId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -38,6 +41,8 @@ namespace BoardGames.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("GenreId");
+
+                    b.HasIndex("ImageId");
 
                     b.ToTable("Games");
                 });
@@ -48,13 +53,37 @@ namespace BoardGames.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ImageId");
+
                     b.ToTable("Genres");
+                });
+
+            modelBuilder.Entity("BoardGames.Data.Entities.Image", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("ImageData")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("ThumbnailData")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("BoardGames.Data.Entities.Mechanic", b =>
@@ -63,11 +92,16 @@ namespace BoardGames.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid?>("ImageId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
 
                     b.ToTable("Mechanics");
                 });
@@ -91,6 +125,9 @@ namespace BoardGames.Data.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<Guid?>("ImageId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -132,6 +169,8 @@ namespace BoardGames.Data.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ImageId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -298,7 +337,40 @@ namespace BoardGames.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BoardGames.Data.Entities.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId");
+
                     b.Navigation("Genre");
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("BoardGames.Data.Entities.Genre", b =>
+                {
+                    b.HasOne("BoardGames.Data.Entities.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId");
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("BoardGames.Data.Entities.Mechanic", b =>
+                {
+                    b.HasOne("BoardGames.Data.Entities.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId");
+
+                    b.Navigation("Image");
+                });
+
+            modelBuilder.Entity("BoardGames.Data.Entities.User", b =>
+                {
+                    b.HasOne("BoardGames.Data.Entities.Image", "Image")
+                        .WithMany()
+                        .HasForeignKey("ImageId");
+
+                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("GameMechanic", b =>
