@@ -15,6 +15,9 @@ namespace BoardGames.MAUIClient.ViewModels
         [ObservableProperty]
         private ObservableCollection<GenreModel> _genres;
 
+        [ObservableProperty]
+        private bool _isLoadingGenres;
+
         public GenresListViewModel(IGenreService genreService)
         {
             Genres = new ObservableCollection<GenreModel>();
@@ -26,36 +29,19 @@ namespace BoardGames.MAUIClient.ViewModels
         #region Commands
 
         [RelayCommand]
-        private async Task NavigateToGenre(GenreModel genre)
-        {
-            await Shell.Current.GoToAsync($"{nameof(GenrePage)}",
-                parameters: new Dictionary<string, object>
-                {
-                    {"Genre", genre}
-                });
-        }
+        private Task NavigateToGenre(GenreModel genre) => Shell.Current.GoToAsync($"{nameof(GenrePage)}",
+                                                                        parameters: new Dictionary<string, object>
+                                                                        {
+                                                                            {"GenreId", genre.Id}
+                                                                        });
 
         [RelayCommand]
-        private async Task CreateGenre()
-        {
-            await NavigateToGenre(new GenreModel());
-        }
-        [RelayCommand]
-        private async Task DeleteGenre(GenreModel genre)
-        {
-            await _genreService.DeleteGenre(genre);
-
-            await GetGenres();
-        }
-        [RelayCommand]
-        private async Task Back()
-        {
-            await Shell.Current.GoToAsync("../");
-        }
+        private Task Back() => Shell.Current.GoToAsync("..");
         
         [RelayCommand]
         private async Task GetGenres()
         {
+            IsLoadingGenres = true;
             var genres = await _genreService.GetGenres();
 
             var newCollection = new ObservableCollection<GenreModel>();
@@ -66,6 +52,7 @@ namespace BoardGames.MAUIClient.ViewModels
             }
 
             Genres = newCollection;
+            IsLoadingGenres = false;
         }
 
         #endregion

@@ -4,72 +4,53 @@
              xmlns:viewmodels="clr-namespace:BoardGames.MAUIClient.ViewModels"
              x:Class="BoardGames.MAUIClient.Views.GenresListPage"
              Title="GenresListPage">
-    <Grid RowDefinitions="100, Auto, *"
+
+    <Grid RowDefinitions="Auto, Auto, *"
           ColumnDefinitions=".75*, .25*"
           Padding="10"
           RowSpacing="10"
           ColumnSpacing="10">
 
-        <Button Text="Добавить"
+        <Button Text="Назад"
                 Grid.Row="0"
                 Grid.ColumnSpan="2"
-                Command="{Binding CreateGenreCommand}"/>
-        <Button Text="Загрузить"
-                Grid.Row="1"
-                Grid.ColumnSpan="2"
-                Command="{Binding GetGenresCommand}"/>
-
-        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+                Command="{Binding BackCommand}"/>
+        <RefreshView Command="{Binding GetGenresCommand}"
+                     IsRefreshing="{Binding IsLoadingGenres}"
+                     Grid.Row="1"
+                     Grid.ColumnSpan="2">
+            <CollectionView 
                         ItemsSource="{Binding Genres}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem Text="Удалить"
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <!--<SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Удалить"
                                            BackgroundColor="Red"
                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=DeleteGenreCommand}"
                                            CommandParameter="{Binding .}"
                                            />
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <Grid Padding="0,5">
-                            <Frame>
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=NavigateToGenreCommand}"
+                                </SwipeItems>
+                            </SwipeView.RightItems>-->
+                            <Grid Padding="0,5">
+                                <Frame>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GenresListViewModel}},Path=NavigateToGenreCommand}"
                                                           CommandParameter="{Binding .}">
-                                        
-                                    </TapGestureRecognizer>
-                                </Frame.GestureRecognizers>
-                                <Label Text="{Binding Name}"
+
+                                        </TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <Label Text="{Binding Name}"
                                         FontSize="24"/>
-                            </Frame>
-                        </Grid>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            
-        </CollectionView>
+                                </Frame>
+                            </Grid>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
 
+            </CollectionView>
+        </RefreshView>
     </Grid>
-
-    <!--<StackLayout>
-        <Button Text="Добавить" Command="{Binding CreateGenreCommand}" />
-        <Button Text="Загрузить" Command="{Binding GetGenresCommand}"/>
-        <ListView x:Name="booksList" ItemsSource="{Binding Genres}"
-            SelectedItem="{Binding SelectedGenre, Mode=TwoWay}" HasUnevenRows="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout>
-                                <Label Text="{Binding Name}" FontSize="Medium" />
-                                <Label Text="{Binding Id}" FontSize="Small" />
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>-->
 </ContentPage>

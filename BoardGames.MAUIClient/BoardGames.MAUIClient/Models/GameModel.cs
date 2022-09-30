@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace BoardGames.MAUIClient.Models
 {
-    public class GameModel
+    public partial class GameModel : ObservableValidator
     {
-        public string? Id { get; set; }
-        public string Name { get; set; }
-        public GenreModel Genre { get; set; }
-        public IEnumerable<MechanicModel> Mechanics { get; set; }
+        [ObservableProperty]
+        private string? _id;
+        [ObservableProperty]
+        private string? _name;
+        [ObservableProperty]
+        private GenreModel? _genre;
+        [ObservableProperty]
+        private IEnumerable<MechanicModel>? _mechanics;
     }
 }

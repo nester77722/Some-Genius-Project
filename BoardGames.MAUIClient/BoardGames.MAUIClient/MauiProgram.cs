@@ -43,11 +43,17 @@ public static class MauiProgram
 
 		builder.Services.AddSingleton<IAuthService, AuthService>();
 		builder.Services.AddSingleton<IGenreService, GenreService>();
+		builder.Services.AddSingleton<IGameService, GameService>();
+
 		builder.Services.AddTransient<GenresListPage>();
 		builder.Services.AddTransient<GenrePage>();
-		builder.Services.AddTransient<GenresListViewModel>();
-		builder.Services.AddTransient<GenreViewModel>();
+		builder.Services.AddTransient<GamePage>();
+        builder.Services.AddTransient<MainPage>();
 
+        builder.Services.AddTransient<MainPageViewModel>();
+        builder.Services.AddTransient<GenresListViewModel>();
+		builder.Services.AddTransient<GenreViewModel>();
+		builder.Services.AddTransient<GameViewModel>();
 
 		builder.ConfigureSerilog();
 		builder.ConfigureRefitClients();

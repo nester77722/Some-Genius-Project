@@ -1,61 +1,56 @@
 ﻿using BoardGames.MAUIClient.Models;
+using BoardGames.MAUIClient.Services;
 using BoardGames.MAUIClient.Services.Interfaces;
 using BoardGames.MAUIClient.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using static System.Net.Mime.MediaTypeNames;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BoardGames.MAUIClient.ViewModels
 {
-    [QueryProperty("GenreId", "GenreId")]
-    public partial class GenreViewModel : ObservableObject, IQueryAttributable
+    public partial class GameViewModel : ObservableObject, IQueryAttributable
     {
-        private readonly IGenreService _genreService;
+        private readonly IGameService _gameService;
         [ObservableProperty]
         private string _errors;
 
         [ObservableProperty]
-        private GenreModel _genre;
+        private GameModel _game;
 
         [ObservableProperty]
         private bool _hasErrors;
 
-        [ObservableProperty]
-        private bool _hasGames;
-
-        public GenreViewModel(IGenreService genreService)
+        public GameViewModel(IGameService gameService)
         {
-            _genreService = genreService;
+            _gameService = gameService;
         }
-
+ 
         public async void ApplyQueryAttributes(IDictionary<string, object> query)
         {
-            var id = query["GenreId"] as string;
+            var id = query["GameId"] as string;
 
             if (!string.IsNullOrWhiteSpace(id))
             {
-                Genre = await _genreService.GetGenre(id);
+                Game = await _gameService.GetGame(id);
             }
             else
             {
-                Genre = new GenreModel();
+                Game = new GameModel();
             }
-
-            HasGames = _genre.Games.Any();
         }
 
         [RelayCommand]
         private Task Back() => Shell.Current.GoToAsync("..");
 
         [RelayCommand]
-        private Task NavigateToGame(GameModel game) => Shell.Current.GoToAsync($"{nameof(GamePage)}",
+        private Task NavigateToGenre(GenreModel genre) => Shell.Current.GoToAsync($"{nameof(GenrePage)}",
                                                                         parameters: new Dictionary<string, object>
                                                                         {
-                                                                            {"GameId", game.Id}
+                                                                            {"GenreId", genre.Id}
                                                                         });
     }
 }

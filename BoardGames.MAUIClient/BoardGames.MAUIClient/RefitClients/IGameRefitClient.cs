@@ -1,5 +1,4 @@
 ﻿using BoardGames.MAUIClient.Models;
-using BoardGames.MAUIClient.Models.Authentication;
 using Refit;
 using System;
 using System.Collections.Generic;
@@ -9,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace BoardGames.MAUIClient.RefitClients
 {
-    public interface IGenreRefitClient
+    public interface IGameRefitClient
     {
-        [Get("/Genre")]
+        [Get("/Game")]
         [QueryUriFormat(UriFormat.Unescaped)]
-        Task<IEnumerable<GenreModel>> GetGenres();
+        Task<IEnumerable<GameModel>> GetGames();
 
-        [Get("/Genre/{id}")]
-        Task<GenreModel> GetGenre(string id);
+        [Get("/Game/{id}")]
+        Task<GameModel> GetGame(string id);
     }
 }

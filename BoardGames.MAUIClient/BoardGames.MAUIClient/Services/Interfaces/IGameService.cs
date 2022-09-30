@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace BoardGames.MAUIClient.Services.Interfaces
 {
-    public interface IGenreService
+    public interface IGameService
     {
-        Task<IEnumerable<GenreModel>> GetGenres();
-        Task<GenreModel> GetGenre(string id);
+        Task<IEnumerable<GameModel>> GetGames();
+        Task<GameModel> GetGame(string id);
     }
 }

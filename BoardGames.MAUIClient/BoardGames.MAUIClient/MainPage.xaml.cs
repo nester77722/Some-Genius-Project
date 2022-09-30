@@ -1,4 +1,5 @@
-﻿using BoardGames.MAUIClient.Views;
+﻿using BoardGames.MAUIClient.ViewModels;
+using BoardGames.MAUIClient.Views;
 using Serilog;
 /* Unmerged change from project 'BoardGames.MAUIClient (net6.0-windows10.0.19041.0)'
 Before:
@@ -35,10 +36,10 @@ namespace BoardGames.MAUIClient;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage()
+	public MainPage(MainPageViewModel vm)
 	{
-
         InitializeComponent();
+        this.BindingContext = vm;
     }
 }
 

@@ -4,8 +4,8 @@
              x:Class="BoardGames.MAUIClient.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout>
-
+        <VerticalStackLayout Padding="10">
+            <Label Text="Тут будут акции"/>
         </VerticalStackLayout>
     </ScrollView>
 

@@ -55,6 +55,12 @@ namespace BoardGames.MAUIClient.Extensions
                     .ConfigureHttpClient(c => c.BaseAddress = new Uri(uri.Value))
                     .AddHttpMessageHandler<AuthHeaderHandler>()
                     .SetHandlerLifetime(TimeSpan.FromDays(1));
+
+            builder.Services.AddRefitClient<IGameRefitClient>()
+                    .ConfigureHttpClient(c => c.BaseAddress = new Uri(uri.Value))
+                    .AddHttpMessageHandler<AuthHeaderHandler>()
+                    .SetHandlerLifetime(TimeSpan.FromDays(1));
+
             builder.Services.AddScoped<AuthHeaderHandler>();
 
         }
