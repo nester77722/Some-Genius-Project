@@ -13,9 +13,6 @@ namespace BoardGames.MAUIClient.ViewModels
     public partial class MainPageViewModel : ObservableObject
     {
         [RelayCommand]
-        private async Task NavigateToGenres()
-        {
-            await Shell.Current.GoToAsync($"{nameof(GenresListPage)}");
-        }
+        private Task NavigateToGenres() => Shell.Current.GoToAsync(nameof(GenresListPage));
     }
 }

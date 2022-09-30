@@ -29,38 +29,24 @@ namespace BoardGames.MAUIClient.ViewModels
         #region Commands
 
         [RelayCommand]
-        private async Task NavigateToGenre(GenreModel genre)
-        {
-            await Shell.Current.GoToAsync($"{nameof(GenrePage)}",
-                parameters: new Dictionary<string, object>
-                {
-                    {"GenreId", genre.Id}
-                });
-        }
+        private Task NavigateToGenre(GenreModel genre) => Shell.Current.GoToAsync($"{nameof(GenrePage)}",
+                                                                        parameters: new Dictionary<string, object>
+                                                                        {
+                                                                            {"GenreId", genre.Id}
+                                                                        });
 
         [RelayCommand]
-        private async Task NavigateToMain()
-        {
-            await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
-        }
+        private Task CreateGenre() => NavigateToGenre(new GenreModel());
 
-        [RelayCommand]
-        private async Task CreateGenre()
-        {
-            await NavigateToGenre(new GenreModel());
-        }
         [RelayCommand]
         private async Task DeleteGenre(GenreModel genre)
         {
-            await _genreService.DeleteGenre(genre);
+             await _genreService.DeleteGenre(genre);
 
-            await GetGenres();
+             await GetGenres();
         }
         [RelayCommand]
-        private async Task Back()
-        {
-            await Shell.Current.GoToAsync("../");
-        }
+        private Task Back() => Shell.Current.GoToAsync("..");
         
         [RelayCommand]
         private async Task GetGenres()

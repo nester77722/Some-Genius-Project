@@ -5,8 +5,7 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="10">
-            <Button Text="Genres"
-                    Command="{Binding NavigateToGenresCommand}"></Button>
+            <Label Text="Тут будут акции"/>
         </VerticalStackLayout>
     </ScrollView>
 

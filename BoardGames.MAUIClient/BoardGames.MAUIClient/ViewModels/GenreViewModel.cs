@@ -32,13 +32,6 @@ namespace BoardGames.MAUIClient.ViewModels
             _genreService = genreService;
         }
 
-        public GenreViewModel(GenreModel genre)
-        {
-            _genre = genre;
-
-            HasGames = _genre.Games.Any();
-        }
-
         public async void ApplyQueryAttributes(IDictionary<string, object> query)
         {
             var id = query["GenreId"] as string;
@@ -56,10 +49,14 @@ namespace BoardGames.MAUIClient.ViewModels
         }
 
         [RelayCommand]
-        private async Task Back()
-        {
-            await Shell.Current.GoToAsync(nameof(GenresListPage));
-        }
+        private Task Back() => Shell.Current.GoToAsync("..");
+
+        [RelayCommand]
+        private Task NavigateToGame(GameModel game) => Shell.Current.GoToAsync($"{nameof(GamePage)}",
+                                                                        parameters: new Dictionary<string, object>
+                                                                        {
+                                                                            {"GameId", game.Id}
+                                                                        });
 
         [RelayCommand]
         private async Task DeleteGenre()

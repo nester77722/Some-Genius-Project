@@ -4,6 +4,7 @@
              xmlns:viewmodels="clr-namespace:BoardGames.MAUIClient.ViewModels"
              x:Class="BoardGames.MAUIClient.Views.GenresListPage"
              Title="GenresListPage">
+
     <Grid RowDefinitions="Auto, Auto, *"
           ColumnDefinitions=".75*, .25*"
           Padding="10"
@@ -14,10 +15,10 @@
                 Grid.Row="0"
                 Grid.ColumnSpan="2"
                 Command="{Binding CreateGenreCommand}"/>
-        <Button Text="На главную"
+        <Button Text="Назад"
                 Grid.Row="1"
                 Grid.ColumnSpan="2"
-                Command="{Binding NavigateToMainCommand}"/>
+                Command="{Binding BackCommand}"/>
         <RefreshView Command="{Binding GetGenresCommand}"
                      IsRefreshing="{Binding IsLoadingGenres}"
                      Grid.Row="2"

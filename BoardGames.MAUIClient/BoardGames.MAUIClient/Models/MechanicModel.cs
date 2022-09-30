@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,15 @@ using System.Threading.Tasks;
 
 namespace BoardGames.MAUIClient.Models
 {
-    public class MechanicModel
+    public partial class MechanicModel : ObservableObject
     {
-        public string? Id { get; set; }
-        public string? Name { get; set; }
-        public IEnumerable<GameModel>? Games { get; set; }
+        [ObservableProperty]
+        private string? _id;
+
+        [ObservableProperty]
+        private string? _name;
+
+        [ObservableProperty]
+        private IEnumerable<GameModel>? _games;
     }
 }

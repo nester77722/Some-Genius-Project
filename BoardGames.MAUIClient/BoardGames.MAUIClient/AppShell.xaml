@@ -5,14 +5,70 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BoardGames.MAUIClient"
     xmlns:views="clr-namespace:BoardGames.MAUIClient.Views"
-    Shell.FlyoutBehavior="Flyout">
-    <FlyoutItem
-                Route="genres">
+    xmlns:controls="clr-namespace:BoardGames.MAUIClient.Controls"    
+    FlyoutBackgroundImageAspect="AspectFill"
+    FlyoutHeaderBehavior="CollapseOnScroll">
+
+    <Shell.Resources>
+        <Style x:Key="BaseStyle"
+               TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#455A64" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TitleColor"
+                    Value="White" />
+            <Setter Property="Shell.DisabledColor"
+                    Value="#B4FFFFFF" />
+            <Setter Property="Shell.UnselectedColor"
+                    Value="#95FFFFFF" />
+        </Style>
+        <Style TargetType="ShellItem"
+               BasedOn="{StaticResource BaseStyle}" />
+        <Style x:Key="GenresShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#039BE6" />
+        </Style>
+        <Style x:Key="AboutShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#96d1ff" />
+        </Style>
+    </Shell.Resources>
+
+    <Shell.FlyoutHeader>
+        <controls:FlyoutHeader />
+    </Shell.FlyoutHeader>
+
+    <Shell.FlyoutFooter>
+        <controls:FlyoutFooter />
+    </Shell.FlyoutFooter>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Main"
+                      ContentTemplate="{DataTemplate local:MainPage}"/>
+        <ShellContent Route="genres"
+                      Title="Genres"
+                      Style="{StaticResource GenresShell}"
+                      ContentTemplate="{DataTemplate views:GenresListPage}" />
+        <ShellContent Route="elephants"
+                      Title="Elephants"
+                      ContentTemplate="{DataTemplate views:GenresListPage}" />
+        <ShellContent Route="bears"
+                      Title="Bears"
+                      ContentTemplate="{DataTemplate views:GenresListPage}" />
     </FlyoutItem>
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <!--<ShellContent Route="about"
+                  Style="{StaticResource AboutShell}"
+                  Title="About"
+                  Icon="info.png"
+                  ContentTemplate="{DataTemplate views:AboutPage}" />-->
 
+    <MenuItem Text="Open site"
+              Command="{Binding HelpCommand}"
+              CommandParameter="https://docs.microsoft.com/dotnet/maui/fundamentals/shell" />
 </Shell>
