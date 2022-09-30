@@ -17,11 +17,5 @@ namespace BoardGames.MAUIClient.RefitClients
 
         [Get("/Genre/{id}")]
         Task<GenreModel> GetGenre(string id);
-
-        [Post("/Genre")]
-        Task CreateGenre(GenreModel genre);
-
-        [Delete("/Genre/{id}")]
-        Task DeleteGenre(string id);
     }
 }

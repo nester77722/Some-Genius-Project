@@ -57,35 +57,5 @@ namespace BoardGames.MAUIClient.ViewModels
                                                                         {
                                                                             {"GameId", game.Id}
                                                                         });
-
-        [RelayCommand]
-        private async Task DeleteGenre()
-        {
-            if (!string.IsNullOrWhiteSpace(_genre.Id) && _genre.Id != "0")
-            {
-                await _genreService.DeleteGenre(_genre);
-            }
-            await Back();
-        }
-
-        [RelayCommand]
-        private async Task SaveGenre()
-        {
-            if (_genre.HasErrors)
-            {
-                HasErrors = true;
-                Errors = string.Join("", _genre.GetErrors().Select(e => e.ErrorMessage));
-            }
-            else
-            {
-                if (string.IsNullOrWhiteSpace(_genre.Id))
-                {
-                    await _genreService.CreateGenre(_genre);
-                }
-
-
-                await Back();
-            }
-        }
     }
 }

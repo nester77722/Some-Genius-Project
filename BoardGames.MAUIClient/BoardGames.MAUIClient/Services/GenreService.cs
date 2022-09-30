@@ -18,18 +18,6 @@ namespace BoardGames.MAUIClient.Services
             _genreClient = genreClient;
         }
 
-        public async Task CreateGenre(GenreModel genre)
-        {
-            var body = new GenreModel() { Name = genre.Name };
-
-            await _genreClient.CreateGenre(body);
-        }
-
-        public async Task DeleteGenre(GenreModel genre)
-        {
-            await _genreClient.DeleteGenre(genre.Id);
-        }
-
         public async Task<GenreModel> GetGenre(string id)
         {
             var genre = await _genreClient.GetGenre(id);

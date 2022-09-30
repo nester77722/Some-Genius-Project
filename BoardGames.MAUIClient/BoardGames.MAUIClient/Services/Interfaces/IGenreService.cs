@@ -11,7 +11,5 @@ namespace BoardGames.MAUIClient.Services.Interfaces
     {
         Task<IEnumerable<GenreModel>> GetGenres();
         Task<GenreModel> GetGenre(string id);
-        Task CreateGenre(GenreModel genre);
-        Task DeleteGenre(GenreModel genre);
     }
 }

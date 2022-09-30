@@ -36,16 +36,6 @@ namespace BoardGames.MAUIClient.ViewModels
                                                                         });
 
         [RelayCommand]
-        private Task CreateGenre() => NavigateToGenre(new GenreModel());
-
-        [RelayCommand]
-        private async Task DeleteGenre(GenreModel genre)
-        {
-             await _genreService.DeleteGenre(genre);
-
-             await GetGenres();
-        }
-        [RelayCommand]
         private Task Back() => Shell.Current.GoToAsync("..");
         
         [RelayCommand]

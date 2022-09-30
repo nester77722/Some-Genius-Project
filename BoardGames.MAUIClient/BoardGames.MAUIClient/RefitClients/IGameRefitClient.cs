@@ -16,11 +16,5 @@ namespace BoardGames.MAUIClient.RefitClients
 
         [Get("/Game/{id}")]
         Task<GameModel> GetGame(string id);
-
-        [Post("/Game")]
-        Task CreateGame(GameModel game);
-
-        [Delete("/Game/{id}")]
-        Task DeleteGame(string id);
     }
 }

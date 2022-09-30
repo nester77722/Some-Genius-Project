@@ -18,16 +18,6 @@ namespace BoardGames.MAUIClient.Services
             _gameClient = gameClient;
         }
 
-        public Task CreateGame(GameModel game)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteGenre(GameModel game)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<GameModel> GetGame(string id)
         {
             var game = await _gameClient.GetGame(id);

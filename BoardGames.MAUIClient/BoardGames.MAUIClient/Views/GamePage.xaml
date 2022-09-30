@@ -37,7 +37,7 @@
                 <Frame Grid.Row="1">
                     <Frame.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:GameViewModel}},Path=NavigateToGenreCommand}"
-                                                          CommandParameter="{Binding .}">
+                                                          CommandParameter="{Binding Game.Genre}">
 
                                     </TapGestureRecognizer>
                     </Frame.GestureRecognizers>
