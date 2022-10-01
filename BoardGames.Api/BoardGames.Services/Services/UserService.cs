@@ -62,13 +62,14 @@ namespace BoardGames.Services.Services
 
             var user = await _repository.GetAsync(userId, include => include.Image);
 
-            user.Name = userDto.Name;
-            user.Surname = userDto.Surname;
+            user.Name = CheckIsNull(userDto.Name) ? string.Empty : userDto.Name;
+
+            user.Surname = CheckIsNull(userDto.Surname) ? string.Empty : userDto.Surname;
             user.Age = userDto.Age;
 
             if (userDto.Image is not null)
             {
-                user.Image.ImageData = userDto.Image;
+                user.Image.ImageData = ImageHelper.ResizeImage(userDto.Image);
                 user.Image.ThumbnailData = ImageHelper.CreateThumbnail(userDto.Image);
             }
 
@@ -77,6 +78,11 @@ namespace BoardGames.Services.Services
             var result = _mapper.Map<UserDto>(user);
 
             return result;
+        }
+
+        private bool CheckIsNull(string value)
+        {
+            return value == "null";
         }
     }
 }
