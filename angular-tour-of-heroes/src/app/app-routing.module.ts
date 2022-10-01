@@ -10,21 +10,18 @@ import {OtherPageComponent} from "./other-page/other-page.component";
 import {GamesComponent} from "./games/games.component";
 import {GameDateilsComponent} from "./game-dateils/game-dateils.component";
 import {MainPageComponent} from "./main-page/main-page.component";
-
-
+import {AuthGuard} from "./guards/auth.guard";
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {path: 'genres', component: GenresComponent},
-  {path: 'genredetail/:id', component:GenresDetailComponent},
-  {path: 'mechanics', component: MechanicsComponent},
-  {path: 'register', component:RegisterComponent},
-  {path: 'mechanicdetail/:id', component: MechanicDetailComponent},
-  {path: 'login', component:LoginComponent},
-  {path: 'other', component: OtherPageComponent},
-  {path: 'games', component: GamesComponent},
-  {path: 'gamedetail/:id', component: GameDateilsComponent},
+  {path: 'genres', component: GenresComponent, canActivate: [AuthGuard]},
+  {path: 'genredetail/:id', component:GenresDetailComponent, canActivate: [AuthGuard]},
+  {path: 'mechanics', component: MechanicsComponent, canActivate: [AuthGuard]},
+  {path: 'mechanicdetail/:id', component: MechanicDetailComponent, canActivate: [AuthGuard]},
+  {path: 'other', component: OtherPageComponent, canActivate: [AuthGuard]},
+  {path: 'games', component: GamesComponent, canActivate: [AuthGuard]},
+  {path: 'gamedetail/:id', component: GameDateilsComponent, canActivate: [AuthGuard]},
   {path: 'home', component: MainPageComponent},
 
 
