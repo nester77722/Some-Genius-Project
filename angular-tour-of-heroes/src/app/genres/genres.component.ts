@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Genre, Hero} from "../interfaces";
 import {GenreService} from "../services/genre.service";
+import {ImageService} from "../services/image.service";
 
 
 @Component({
@@ -14,12 +15,15 @@ export class GenresComponent implements OnInit {
 
 
 
-  constructor(private genreService: GenreService) {
-
+  constructor(private genreService: GenreService,
+              private imageService:ImageService,) {
   }
 
   ngOnInit(): void {
-    this.genreService.getGenres() .subscribe(genres => this.genres = genres);
+    this.genreService.getGenres() .subscribe(genres => {
+      genres.forEach(genre => genre.thumbnail = this.imageService.normalizeImage(genre.thumbnail))
+      this.genres = genres
+    });
 
   }
 

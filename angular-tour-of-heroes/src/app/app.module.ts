@@ -15,6 +15,7 @@ import { GamesComponent } from './games/games.component';
 import { GameDateilsComponent } from './game-dateils/game-dateils.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainPageComponent } from './main-page/main-page.component';
+import {AuthGuard} from "./guards/auth.guard";
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     NgbModule,
 
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

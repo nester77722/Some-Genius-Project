@@ -6,6 +6,8 @@ export interface Genre{
   id:string;
   name?:string;
   games?:Game[]
+  image:any;
+  thumbnail:any;
 }
 export interface Mechanic{
   id:string;
