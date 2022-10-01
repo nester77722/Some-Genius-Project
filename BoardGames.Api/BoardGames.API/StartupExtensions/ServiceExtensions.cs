@@ -31,6 +31,7 @@ namespace BoardGames.API.StartupExtensions
             services.AddScoped<IGameService, GameService>();
             services.AddScoped<IGenreService, GenreService>();
             services.AddScoped<IMechanicService, MechanicService>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         public static void ConfigureAuthentication(this IServiceCollection services, IConfiguration configuration)

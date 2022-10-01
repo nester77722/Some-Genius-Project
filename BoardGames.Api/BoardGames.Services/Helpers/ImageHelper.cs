@@ -23,10 +23,25 @@ namespace BoardGames.Services.Helpers
         public static async Task<byte[]> DefaultImage()
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\", "defaultImage.png");
-            var result = await File.ReadAllBytesAsync(path);
+            var result = await ReadImageAsync(path);
 
             return result;
 
+        }
+
+        public static async Task<byte[]> DefaultAvatar()
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\", "defaultAvatar.jpg");
+            var result = await ReadImageAsync(path);
+
+            return result;
+        }
+
+        private static async Task<byte[]> ReadImageAsync(string path)
+        {
+            var result = await File.ReadAllBytesAsync(path);
+
+            return result;
         }
     }
 }

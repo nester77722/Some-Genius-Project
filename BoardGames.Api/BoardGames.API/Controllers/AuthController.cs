@@ -1,6 +1,7 @@
 ﻿using BoardGames.API.Models;
 using BoardGames.API.Services.Interfaces;
 using BoardGames.Data.Entities;
+using BoardGames.Services.Helpers;
 using BoardGames.Shared.Exceptions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -101,11 +102,15 @@ namespace BoardGames.API.Controllers
                 throw new RegisterException("Invalid client request.");
             }
 
+            var avatar = await ImageHelper.DefaultAvatar();
+
             var user = new User()
             {
                 UserName = registerModel.UserName,
-                Email = registerModel.Email
+                Email = registerModel.Email,
+                Image = new Image { ImageData = avatar, ThumbnailData = ImageHelper.CreateThumbnail(avatar) }
             };
+
             var result = await _userManager.CreateAsync(user, registerModel.Password);
 
             if (!result.Succeeded)

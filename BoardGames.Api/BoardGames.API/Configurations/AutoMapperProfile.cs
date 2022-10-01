@@ -68,6 +68,10 @@ namespace BoardGames.API.Configurations
                                                             ImageData = genreDto.Image
                                                         }));
 
+            CreateMap<User, UserDto>().ForMember(dest => dest.Image, opt => opt.MapFrom(user => user.Image.ImageData));
+            CreateMap<UserDto, User>().ForMember(dest => dest.Image,
+                                                 opt => opt.MapFrom(userDto => new Image { ImageData = userDto.Image }));
+
 
             CreateMap<string, Guid>().ConvertUsing(s => Guid.Parse(s));
             CreateMap<string, Guid?>().ConvertUsing(s => string.IsNullOrWhiteSpace(s) ? null : Guid.Parse(s));
