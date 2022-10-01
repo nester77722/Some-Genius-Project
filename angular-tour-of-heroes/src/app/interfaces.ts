@@ -32,5 +32,8 @@ export interface Tokens{
 export interface User{
   id:string,
   name:string,
-  roles:string[]
+  surname:string,
+  age:number,
+  image:any,
+  userName:string
 }

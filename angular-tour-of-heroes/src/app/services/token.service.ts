@@ -4,7 +4,7 @@ import { from, map, switchMap, catchError } from 'rxjs';
 import { Tokens, User } from '../interfaces';
 import { AuthService } from "./auth.service";
 const tokensKey: string = 'tokens';
-const userKey: string = "user";
+const userIdKey: string = "userId";
 @Injectable({
   providedIn: 'root'
 })
@@ -95,17 +95,13 @@ export class TokenService {
   }
 
   private saveUser(data: any): void {
-    window.localStorage.removeItem(userKey);
-    var user = {
-      id: data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"],
-      name: data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"],
-      roles: data["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"]
-    }
-    window.localStorage.setItem(userKey, JSON.stringify(user));
+    window.localStorage.removeItem(userIdKey);
+    var userId = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
+    window.localStorage.setItem(userIdKey, JSON.stringify(userId));
   }
 
-  getUser():User|null{
-    let json = window.localStorage.getItem(userKey);
+  getUserId():string|null{
+    let json = window.localStorage.getItem(userIdKey);
 
     if(json){
       let user = JSON.parse(json);

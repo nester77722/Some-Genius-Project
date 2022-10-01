@@ -1,29 +1,20 @@
 <div class="background-color-main">
   <div class="main-wrapper">
     <div class="header-setting" style="display: flex">
-    <h1 style="margin-bottom: 20px;" class="h1-header"><span class="main-name">{{title}}</span></h1>
-  <div *ngIf="!isLoggedIn" class="register-nav" style="display: flex; flex-basis: 15%; justify-content: center">
-    <span class="route-register">
-      <button type="button" (click)="openRegisterModal()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Register</button>
-        <button type="button" (click)="openLoginModal()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Login</button>
-      </span>
-  </div>
-      <div  *ngIf="isLoggedIn" class="position-logOut">
-       <span class="position-logOut_height"><button (click)="logOut()" class="home-btn">LogOut</button></span>
+      <h1 style="margin-bottom: 20px;" class="h1-header"><span class="main-name"><a routerLink="/home">{{title}}</a></span></h1>
+      <div *ngIf="!isLoggedIn" class="register-nav" style="display: flex; flex-basis: 15%; justify-content: center">
+        <span class="route-register">
+          <button type="button" (click)="openRegisterModal()" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Register</button>
+          <button type="button" (click)="openLoginModal()" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Login</button>
+        </span>
+      </div>
+      <div *ngIf="isLoggedIn" class="position-logOut">
+        <span class="position-logOut_height"><button class="home-btn"><a routerLink="/profile">Profile</a></button></span>
+        <span class="position-logOut_height"><button (click)="logOut()" class="home-btn">LogOut</button></span>
       </div>
     </div>
-
-
   </div>
-
-
-<!--
-  <div>
-    <div *ngIf="isLoggedIn"><a  routerLink="/home" >Home</a>
-    </div>
-  </div>-->
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
-
-
-

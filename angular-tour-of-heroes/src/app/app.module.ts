@@ -15,7 +15,10 @@ import { GamesComponent } from './games/games.component';
 import { GameDateilsComponent } from './game-dateils/game-dateils.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainPageComponent } from './main-page/main-page.component';
-import {AuthGuard} from "./guards/auth.guard";
+import { AuthGuard } from "./guards/auth.guard";
+import { ProfileComponent } from './profile/profile.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 
 @NgModule({
@@ -31,6 +34,7 @@ import {AuthGuard} from "./guards/auth.guard";
     GamesComponent,
     GameDateilsComponent,
     MainPageComponent,
+    ProfileComponent,
 
   ],
   imports: [
@@ -41,7 +45,12 @@ import {AuthGuard} from "./guards/auth.guard";
     NgbModule,
 
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    authInterceptorProviders,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

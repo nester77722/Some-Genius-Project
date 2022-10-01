@@ -1,0 +1,27 @@
+<div *ngIf="user">
+
+    <h2>Hello {{user.userName | uppercase}}</h2>
+    <div><span>Your id: </span>{{user.id}}</div>
+    <div>
+        <label>Name:</label>
+        <input placeholder="Enter name" [(ngModel)]="user.name" />
+    </div>
+    <div>
+        <label>Surname:</label>
+        <input placeholder="Enter surname" [(ngModel)]="user.surname" />
+    </div>
+    <div>
+        <label>Age:</label>
+        <input type="number" [(ngModel)]="user.age" />
+    </div>
+    <div >
+        <img class="image" [src]="user.image" />
+    </div>
+    <div>
+        <input type="file" (change)="onAvatarChange($event)" /><br />
+    </div>
+    <div>
+        <button (click)="updateInfo()">Save information</button>
+    </div>
+
+</div>
