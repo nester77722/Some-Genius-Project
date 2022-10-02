@@ -36,9 +36,10 @@ namespace BoardGames.Services.Services
 
             genre.Id = Guid.NewGuid();
 
-            if (genre.Image.ImageData is not null)
+            if (genreDto.Image is not null)
             {
-                genre.Image.ThumbnailData = ImageHelper.CreateThumbnail(genre.Image.ImageData);
+                genre.Image.ImageData = ImageHelper.ResizeImage(genreDto.Image);
+                genre.Image.ThumbnailData = ImageHelper.CreateThumbnail(genreDto.Image);
             }
             else
             {

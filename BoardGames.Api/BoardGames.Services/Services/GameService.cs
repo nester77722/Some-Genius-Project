@@ -69,9 +69,10 @@ namespace BoardGames.Services.Services
 
             game.Mechanics = dbMechanics.Where(x => gameMechanicIds.Contains(x.Id)).ToList();
 
-            if (game.Image.ImageData is not null)
+            if (gameDto.Image is not null)
             {
-                game.Image.ThumbnailData = ImageHelper.CreateThumbnail(game.Image.ImageData);
+                game.Image.ImageData = ImageHelper.ResizeImage(gameDto.Image);
+                game.Image.ThumbnailData = ImageHelper.CreateThumbnail(gameDto.Image);
             }
             else
             {
