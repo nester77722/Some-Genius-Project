@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ThumbnailSharp;
 using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
@@ -20,40 +19,32 @@ namespace BoardGames.Services.Helpers
 
         public static byte[] CreateThumbnail(byte[] imageBytes)
         {
-            using (MemoryStream ms = new MemoryStream(imageBytes))
-            {
-                ms.Write(imageBytes, 0, imageBytes.Length);
-                Image image = Image.FromStream(ms, true);
+            using MemoryStream ms = new MemoryStream(imageBytes);
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            Image image = Image.FromStream(ms, true);
 
-                var imag = ScaleImage(image, _thumbnailHeight, _thumbnailWidth);
+            var imag = ScaleImage(image, _thumbnailHeight, _thumbnailWidth);
 
-                using (MemoryStream ms1 = new MemoryStream())
-                {
-                    imag.Save(ms1, image.RawFormat);
-                    byte[] result = ms1.ToArray();
+            using MemoryStream ms1 = new MemoryStream();
+            imag.Save(ms1, image.RawFormat);
+            byte[] result = ms1.ToArray();
 
-                    return result;
-                }
-            }
+            return result;
         }
 
         public static byte[] ResizeImage(byte[] imageBytes)
         {
-            using (MemoryStream ms = new MemoryStream(imageBytes))
-            {
-                ms.Write(imageBytes, 0, imageBytes.Length);
-                Image image = Image.FromStream(ms, true);
+            using MemoryStream ms = new MemoryStream(imageBytes);
+            ms.Write(imageBytes, 0, imageBytes.Length);
+            Image image = Image.FromStream(ms, true);
 
-                var imag = ScaleImage(image, _normalizedHeight, _normalizedWidth);
+            var imag = ScaleImage(image, _normalizedHeight, _normalizedWidth);
 
-                using (MemoryStream ms1 = new MemoryStream())
-                {
-                    imag.Save(ms1, image.RawFormat);
-                    byte[] result = ms1.ToArray();
+            using MemoryStream ms1 = new MemoryStream();
+            imag.Save(ms1, image.RawFormat);
+            byte[] result = ms1.ToArray();
 
-                    return result;
-                }
-            }
+            return result;
         }
 
         public static async Task<byte[]> DefaultImage()
